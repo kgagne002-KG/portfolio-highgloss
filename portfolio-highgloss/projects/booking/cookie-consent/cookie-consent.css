@@ -1,190 +1,196 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+/* =========================
+   Cookie Consent — Portfolio-Aligned
+   ========================= */
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  background-color: #0f172a;
-  color: #fff;
+:root {
+  --bg: #0f1216;
+  --surface: #151a20;
+  --surface2: #1b222b;
+  --text: #f3f5f7;
+  --muted: rgba(243, 245, 247, 0.72);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #6eced1;
+  --accentDeep: #3fa6a3;
+
+  --radius: 16px;
+  --radiusLg: 22px;
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+/* Page */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background:
+    radial-gradient(
+      900px 520px at 18% 18%,
+      rgba(110, 206, 209, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 85% 22%,
+      rgba(63, 166, 163, 0.12),
+      transparent 62%
+    ),
+    linear-gradient(180deg, var(--bg), #0b0d10);
+  color: var(--text);
+}
+
+/* Header */
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.projectHeader {
+  padding: 56px 0 32px;
+}
+
+.display {
+  font-family: Fraunces, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin: 0 0 10px;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* Demo */
+.demo {
+  padding: 32px 0 80px;
+}
+
+.demoHeader {
   text-align: center;
 }
 
-.page h1 {
-  font-size: 3rem;
-  margin-bottom: 12px;
+.demoTitle {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
 }
 
-.page p {
-  margin-bottom: 24px;
+.demoSub {
+  color: var(--muted);
+  margin-bottom: 14px;
 }
 
-.reset-btn {
-  padding: 12px 24px;
-  font-size: 0.9rem;
-  font-family: inherit;
-  background: #fff;
-  color: #1a1a1a;
-  border: 1px solid #ddd;
+.resetBtn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 700;
   cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.2s ease;
 }
 
-.reset-btn:hover {
-  border-color: #1a1a1a;
-}
-
-.cookie-banner {
+/* Cookie banner */
+.cookieBanner {
   position: fixed;
   bottom: 20px;
   left: 20px;
   right: 20px;
-  max-width: 500px;
-  background: #1e293b;
-  border-radius: 16px;
+  max-width: 520px;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 26, 32, 0.96),
+    rgba(27, 34, 43, 0.94)
+  );
+  border-radius: var(--radiusLg);
   padding: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   z-index: 1000;
-  animation: slideUp 0.4s ease;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-.cookie-content {
+.cookieContent {
   display: flex;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-.cookie-icon {
-  font-size: 2.5rem;
-  line-height: 1;
+.cookieIcon {
+  font-size: 2rem;
 }
 
-.cookie-text h3 {
-  color: #fff;
+.cookieText h3 {
+  margin: 0 0 6px;
   font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 8px;
 }
 
-.cookie-text p {
-  color: #999;
+.cookieText p {
+  margin: 0;
   font-size: 0.85rem;
+  color: var(--muted);
   line-height: 1.5;
 }
 
-.cookie-actions {
-  display: flex;
+.cookieActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-.btn {
-  flex: 1;
-  padding: 12px 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  font-family: "Inter", sans-serif;
-  border: none;
-  border-radius: 10px;
+.btnPrimary,
+.btnSecondary {
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  font-weight: 700;
 }
 
-.btn-secondary {
-  background: #334155;
-  color: #e2e8f0;
+.btnPrimary {
+  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
+  color: #0b0d10;
 }
 
-.btn-secondary:hover {
-  background: #475569;
-  color: #e2e8f0;
-}
-
-.btn-primary {
-  background: #fff;
-  color: #1a1a1a;
-}
-
-.btn-primary:hover {
-  background: #f0f0f0;
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-color: var(--border);
 }
 
 .hidden {
   display: none;
 }
 
+/* Mobile */
 @media (max-width: 540px) {
-  .cookie-banner {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    padding: 20px;
-  }
-
-  .cookie-content {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .cookie-actions {
-    flex-direction: column;
+  .cookieActions {
+    grid-template-columns: 1fr;
   }
 }
-/* =====================================
-   FINAL FIX — COOKIE CONSENT PROJECT
-   ===================================== */
-
-/* 1️⃣ Make the page neutral (portfolio owns it) */
-body {
-  background-color: #fff;
-  color: #2e2e2e;
+/* Shared back navigation button (matches Pricing, Contact, Team, Recipe) */
+.btnNav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f3f5f7;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
-/* 2️⃣ Protect the project header */
-.projectHeader {
-  text-align: left;
-}
-
-.projectHeader .display {
-  color: #2e2e2e;
-}
-
-.projectHeader .lead {
-  color: #737373;
-}
-
-/* 3️⃣ Apply the demo's dark theme ONLY inside the demo */
-.demo-cookie {
-  background-color: #0f172a;
-  color: #fff;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-/* 4️⃣ Keep demo layout intact */
-.demo-cookie .page {
-  min-height: 100vh;
+.btnNav:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }

@@ -3,155 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookie Consent — Preference State &amp; Persistence</title>
+    <title>Cookie Consent — Preference State & Persistence</title>
 
-    <!-- Header UI (shared, safe) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@400;600;800;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --text: #2e2e2e;
-        --muted: rgba(46, 46, 46, 0.72);
-        --border: rgba(0, 0, 0, 0.12);
-        --shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family:
-          Inter,
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          Arial,
-          sans-serif;
-        color: var(--text);
-      }
-      .shell {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-      .projectHeader {
-        padding: 38px 0 18px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      }
-      .projectNav {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 14px;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 14px;
-        border-radius: 999px;
-        font-weight: 900;
-        text-decoration: none;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.78);
-        color: var(--text);
-        transition:
-          transform 0.18s ease,
-          box-shadow 0.18s ease;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: var(--shadow);
-      }
-      .display {
-        margin: 0 0 10px;
-        font-family: Fraunces, serif;
-        font-weight: 400;
-        letter-spacing: -0.02em;
-        line-height: 1.08;
-        font-size: clamp(1.9rem, 3.2vw, 2.6rem);
-      }
-      .lead {
-        margin: 0;
-        color: var(--muted);
-        max-width: 72ch;
-      }
-      .demo {
-        padding: 26px 0 70px;
-      }
-      .demoHeader {
-        margin: 0 auto 18px;
-      }
-      .demoTitle {
-        margin: 0 0 6px;
-        font-size: 1.15rem;
-        font-weight: 950;
-      }
-    </style>
 
-    <!-- Demo styles + script -->
+    <!-- Styles + script -->
     <link rel="stylesheet" href="cookie-consent.css" />
     <script src="cookie-consent.js" defer></script>
   </head>
 
   <body>
+    <!-- PROJECT HEADER -->
     <header class="projectHeader">
       <div class="shell">
-        <div class="projectNav">
-          <a
-            class="btn"
-            href="../../../case-studies/custom-appointment-booking-system.html"
-          >
-            ← Back to Case Study
-          </a>
-        </div>
+        <a
+          class="btnNav"
+          href="../../../case-studies/custom-appointment-booking-system.html"
+        >
+          ← Back to Case Study
+        </a>
 
-        <h1 class="display">
-          Cookie Consent — Preference State &amp; Persistence
-        </h1>
+        <h1 class="display">Cookie Consent</h1>
         <p class="lead">
-          A consent pattern that manages user preferences through explicit
-          state, persistence, and reversible choices.
+          A preference management pattern focused on clear user choice,
+          persistent state, and reversible decisions.
         </p>
       </div>
     </header>
 
+    <!-- DEMO -->
     <main class="demo demo-cookie">
       <div class="shell demoHeader">
-        <h2 class="demoTitle">Demo Content</h2>
-        <p class="lead">
-          This is a demo page to show the cookie consent banner.
+        <h2 class="demoTitle">Consent Demo</h2>
+        <p class="demoSub">
+          Interact with the banner below to see consent state persisted locally.
         </p>
-      </div>
 
-      <div class="shell">
-        <button class="reset-btn" id="resetBtn">
-          Reset Cookie Preferences
-        </button>
+        <button class="resetBtn" id="resetBtn">Reset cookie preferences</button>
       </div>
     </main>
 
-    <div class="cookie-banner" id="cookieBanner">
-      <div class="cookie-content">
-        <div class="cookie-icon">🍪</div>
-        <div class="cookie-text">
-          <h3>We use cookies</h3>
+    <!-- COOKIE BANNER (VISIBLE BY DEFAULT) -->
+    <div class="cookieBanner" id="cookieBanner">
+      <div class="cookieContent">
+        <div class="cookieIcon">🍪</div>
+
+        <div class="cookieText">
+          <h3>Cookie preferences</h3>
           <p>
-            We use cookies to improve your experience and analyze site traffic.
-            By clicking "Accept", you consent to our use of cookies.
+            Cookies are used to improve experience and understand site usage.
+            You can accept or decline, and change your choice later.
           </p>
         </div>
       </div>
 
-      <div class="cookie-actions">
-        <button class="btn btn-secondary" id="declineBtn">Decline</button>
-        <button class="btn btn-primary" id="acceptBtn">Accept All</button>
+      <div class="cookieActions">
+        <button class="btnSecondary" id="declineBtn">Decline</button>
+        <button class="btnPrimary" id="acceptBtn">Accept</button>
       </div>
     </div>
   </body>
