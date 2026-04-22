@@ -1,34 +1,120 @@
-:root {
-  --bg: #050505;
-  --text: #ffffff;
-  --text-dim: #8a8a8a;
-  --accent: #6366f1;
-  --accent-light: #818cf8;
-  --glow: rgba(99, 102, 241, 0.5);
-}
+/* =========================
+   Launch Screen — Final, Clean, Aligned
+   ========================= */
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Space Grotesk", sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* ---------- Portfolio frame ---------- */
+
+:root {
+  --page-bg: #f6f7f9;
+  --text-main: #2e2e2e;
+  --text-muted: rgba(46, 46, 46, 0.72);
+
+  /* Demo theme */
+  --demo-bg: #050505;
+  --demo-text: #ffffff;
+  --demo-text-dim: #8a8a8a;
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --glow: rgba(99, 102, 241, 0.5);
+
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-demo: rgba(255, 255, 255, 0.12);
+  --radius-lg: 24px;
 }
 
-/* TODO: EXPLAIN THIS LATER */
+/* Page background acts as a neutral stage */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+}
+
+/* Shared layout shell */
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+
+.projectHeader {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.projectNav {
+  margin-bottom: 14px;
+}
+
+/* Canonical back button */
+.btnNav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-main);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btnNav:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.display {
+  font-family: Fraunces, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin: 0 0 10px;
+}
+
+.lead {
+  max-width: 70ch;
+  color: var(--text-muted);
+}
+
+/* ---------- Demo wrapper ---------- */
+/* Note: spacing is INTERNAL — no margin-top */
+
+.demo-coming-soon {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 48px; /* intentional reveal spacing */
+  background: var(--demo-bg);
+  color: var(--demo-text);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* ---------- Animated background ---------- */
+
 .bg {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 .blob {
@@ -65,18 +151,6 @@ body {
   animation-delay: -10s;
 }
 
-/* Animation-delay can be positive or negative and they do different things:
-
-
-Positive (2s)	Waits 2 seconds, then starts the animation
-Negative (-7s)	Starts immediately, but 7 seconds into the animation
-Example with -7s:
-If you have a 20-second animation and set animation-delay: -7s:
-Animation starts right away
-But it begins at the 7-second mark (skips the first 7 seconds) 
-
-*/
-
 @keyframes float {
   0%,
   100% {
@@ -85,25 +159,26 @@ But it begins at the 7-second mark (skips the first 7 seconds)
   33% {
     transform: translate(50px, -50px) scale(1.1);
   }
-
   66% {
     transform: translate(30px, -30px) scale(0.9);
   }
 }
 
-.container {
+/* ---------- Demo content ---------- */
+
+.demoContainer {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  padding: 2rem;
-  max-width: 650px;
-  width: 100%;
+  max-width: 640px;
+  padding: 32px 20px;
 }
 
 .logo {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 0.75rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .logo-icon {
@@ -111,43 +186,35 @@ But it begins at the 7-second mark (skips the first 7 seconds)
   height: 48px;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
 }
 
 .logo span {
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 1.6rem;
   font-weight: 700;
-}
-
-.hero {
-  margin-bottom: 3rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .badge {
   display: inline-flex;
-  align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
   background: rgba(99, 102, 241, 0.15);
   border: 1px solid rgba(99, 102, 241, 0.3);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  font-size: 0.85rem;
-  font-weight: 500;
   color: var(--accent-light);
+  font-size: 0.85rem;
   margin-bottom: 1.5rem;
 }
 
 .pulse {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
   background: var(--accent-light);
-  animation: pulse 2s ease-in-out infinite;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
@@ -155,75 +222,59 @@ But it begins at the 7-second mark (skips the first 7 seconds)
   100% {
     box-shadow: 0 0 0 0 var(--glow);
   }
-
   50% {
     box-shadow: 0 0 0 10px transparent;
   }
 }
 
-.hero h1 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+.heroTitle {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: 0.75rem;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-  max-width: 450px;
-  margin: 0 auto;
+.heroCopy {
+  color: var(--demo-text-dim);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
 }
 
+/* Countdown */
 .countdown {
   display: flex;
+  gap: 0.75rem;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .time-block {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
   border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  min-width: 90px;
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-demo);
+  min-width: 80px;
 }
 
 .time-value {
-  display: block;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0.25rem;
-  background: linear-gradient(135deg, var(--text), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .time-label {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  text-transform: uppercase;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
+  color: var(--demo-text-dim);
 }
 
 .separator {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-dim);
+  font-size: 1.5rem;
   opacity: 0.5;
 }
 
+/* Form */
 .email-form {
   display: flex;
   gap: 0.75rem;
-  max-width: 450px;
+  max-width: 440px;
   margin: 0 auto;
 }
 
@@ -232,252 +283,40 @@ But it begins at the 7-second mark (skips the first 7 seconds)
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 1rem;
   border-radius: 12px;
-  padding: 0 1.25rem;
-  transition: all 0.3s ease;
-}
-
-.input-group:focus-within {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-.input-group i {
-  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-demo);
 }
 
 .input-group input {
-  flex: 1;
   background: transparent;
   border: none;
-  padding: 1rem 0;
-  font-family: inherit;
-  font-size: 1rem;
-  color: var(--text);
   outline: none;
-}
-
-.input-group input::placeholder {
-  color: var(--text-dim);
+  color: var(--demo-text);
+  padding: 0.9rem 0;
+  width: 100%;
 }
 
 .email-form button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--accent), #4f46e5);
-  border: none;
-  padding: 1rem 1.5rem;
+  padding: 0 1.25rem;
   border-radius: 12px;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), #4f46e5);
   color: white;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.email-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px var(--glow);
-}
-
-.email-form button i {
-  transition: transform 0.2s ease;
-}
-
-.email-form button:hover i {
-  transform: translateX(4px);
 }
 
 .success-message {
   display: flex;
-  align-items: center;
+  gap: 0.5rem;
   justify-content: center;
-  gap: 0.75rem;
-  background: rgba(34, 197, 94, 0.15);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
+  align-items: center;
+  margin-top: 1.25rem;
   color: #4ade80;
-  font-weight: 500;
-  max-width: 450px;
-  margin: 1rem auto 1.5rem;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-.success-message i {
-  font-size: 1.25rem;
-}
-
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.socials a {
-  width: 44px;
-  height: 44px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-dim);
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.socials a:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: white;
-  transform: translateY(-3px);
 }
 
 .hidden {
   display: none;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 1.5rem;
-  }
-
-  .logo {
-    margin-bottom: 2rem;
-  }
-
-  .countdown {
-    gap: 0.5rem;
-  }
-
-  .time-block {
-    padding: 1rem;
-    min-width: 70px;
-  }
-
-  .time-value {
-    font-size: 1.75rem;
-  }
-
-  .separator {
-    font-size: 1.5rem;
-  }
-
-  .email-form {
-    flex-direction: column;
-  }
-
-  .email-form button {
-    width: 100%;
-    justify-content: center;
-  }
-}
-/* ===============================
-   SCOPE: COMING SOON DEMO ONLY
-   =============================== */
-
-body {
-  display: block;
-  align-items: unset;
-  justify-content: unset;
-  overflow: visible;
-  min-height: auto;
-  background-color: unset;
-  color: unset;
-}
-
-/* Re-apply the demo's full-screen look inside wrapper */
-.demo-coming-soon {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-/* Ensure the blob background is contained to the demo */
-.demo-coming-soon .bg {
-  position: absolute;
-  inset: 0;
-}
-/* =====================================
-   FINAL FIX — COMING SOON PROJECT HEADER
-   ===================================== */
-
-/* 1) Stop the demo from owning the entire page */
-body {
-  display: block;
-  align-items: unset;
-  justify-content: unset;
-  overflow: visible;
-  min-height: auto;
-  background-color: #fff;
-  color: #2e2e2e;
-}
-
-/* 2) Keep the portfolio project header readable */
-.projectHeader {
-  text-align: left;
-  margin-bottom: 0;
-}
-
-.projectHeader .display {
-  color: #2e2e2e;
-  margin: 0 0 0.5rem;
-}
-
-.projectHeader .lead {
-  color: rgba(46, 46, 46, 0.72);
-  margin: 0;
-}
-
-/* 3) Re-apply the demo's full-screen experience INSIDE the wrapper */
-.demo-coming-soon {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: "Space Grotesk", sans-serif;
-}
-
-/* 4) Contain the blob background to the demo wrapper */
-.demo-coming-soon .bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
-/* 5) Make sure the demo container sits above the blobs */
-.demo-coming-soon .container {
-  position: relative;
-  z-index: 1;
 }

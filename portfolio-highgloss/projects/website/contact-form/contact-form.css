@@ -1,8 +1,10 @@
 /* =========================
-   Contact Form — Aligned to Pricing Cards
+   Contact Form — Final Aligned Version
    ========================= */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,6 +23,7 @@
   --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
 }
 
+/* Page */
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
@@ -62,15 +65,10 @@ body {
   color: var(--text);
 }
 
-.btnNav:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .display {
-  margin: 0 0 10px;
   font-family: Fraunces, serif;
-  font-weight: 400;
   font-size: clamp(2rem, 3vw, 2.6rem);
+  margin: 0 0 10px;
 }
 
 .lead {
@@ -78,7 +76,7 @@ body {
   color: var(--muted);
 }
 
-/* Form container */
+/* Layout */
 .demo {
   padding: 32px 20px 80px;
 }
@@ -97,9 +95,13 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Fields */
+/* Form */
 form > * + * {
   margin-top: 18px;
+}
+
+.hidden {
+  display: none;
 }
 
 .input-group {
@@ -128,7 +130,11 @@ textarea {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--text);
-  font-size: 0.95rem;
+}
+
+textarea {
+  height: 160px;
+  padding-left: 14px;
 }
 
 input::placeholder,
@@ -157,36 +163,9 @@ textarea:focus {
   color: rgba(110, 206, 209, 0.6);
 }
 
-.message-field textarea {
-  padding-left: 14px;
-  height: 160px;
-}
-
 /* Notes */
 .form-note {
-  margin-bottom: 8px;
   font-size: 0.85rem;
   color: var(--muted);
-}
-
-.form-note.subtle {
-  margin-top: 12px;
-  text-align: center;
-}
-
-/* Button */
-button {
-  width: 100%;
-  padding: 14px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(110, 206, 209, 0.28);
-  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
-  color: #0b0d10;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-button:hover {
-  filter: saturate(1.05);
-  transform: translateY(-1px);
+  margin-top: 6px;
 }

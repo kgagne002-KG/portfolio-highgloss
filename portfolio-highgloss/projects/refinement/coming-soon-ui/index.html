@@ -3,134 +3,124 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon UI</title>
-    <link rel="stylesheet" href="coming-soon.css" />
+    <title>Launch Screen — Clarity & Expectation Setting</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700"
-      rel="stylesheet"
     />
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="coming-soon.css" />
+
+    <!-- Script -->
     <script src="coming-soon.js" defer></script>
   </head>
+
   <body>
+    <!-- PROJECT HEADER -->
     <header class="projectHeader">
-  <div class="shell">
-    <div class="projectNav">
-      <a class="btn ghost"
-         href="../../../case-studies/front-end-improvements-ui-refinement.html">
-        ← Back to Case Study
-      </a>
-    </div>
-
-    <h1 class="display">
-      Launch Screen — Clarity &amp; Expectation Setting
-    </h1>
-
-    <p class="lead">
-      A coming‑soon screen designed to communicate intent
-      without visual noise.
-    </p>
-  </div>
-</header>
-
-<main class="demo demo-coming-soon">
-  <div class="demoHeader">
-    <h2 class="demoTitle">Launch Screen Demo</h2>
-  </div>
-
-  
-
-
-    <!-- ANIMATED BG -->
-    <div class="bg">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="container">
-      <!-- LOGO -->
-      <div class="logo">
-        <div class="logo-icon">
-          <i class="fa-solid fa-bolt"></i>
+      <div class="shell">
+        <div class="projectNav">
+          <a
+            class="btnNav"
+            href="../../../case-studies/front-end-improvements-ui-refinement.html"
+          >
+            ← Back to Case Study
+          </a>
         </div>
-        <span>Flux</span>
+
+        <h1 class="display">Launch Screen</h1>
+        <p class="lead">
+          A launch‑state interface focused on clarity, expectation setting, and
+          maintaining engagement before release.
+        </p>
+      </div>
+    </header>
+
+    <!-- DEMO -->
+    <main class="demo demo-coming-soon">
+      <!-- Animated background -->
+      <div class="bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
       </div>
 
-      <section class="hero">
+      <!-- Demo content -->
+      <div class="demoContainer">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <span>Launch</span>
+        </div>
+
         <div class="badge">
           <span class="pulse"></span>
           Coming Soon
         </div>
 
-       
-      
+        <h2 class="heroTitle">Something new is on the way</h2>
+        <p class="heroCopy">
+          This screen demonstrates how to communicate status and timing clearly
+          while users wait for access.
+        </p>
 
-      <!-- COUNTDOWN -->
-      <section class="countdown">
-        <div class="time-block">
-          <span class="time-value" id="days">00</span>
-          <span class="time-label">Days</span>
+        <!-- Countdown -->
+        <section class="countdown">
+          <div class="time-block">
+            <span class="time-value" id="days">00</span>
+            <span class="time-label">Days</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-block">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-block">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">Minutes</span>
+          </div>
+          <span class="separator">:</span>
+          <div class="time-block">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">Seconds</span>
+          </div>
+        </section>
+
+        <!-- Notification form -->
+        <form class="email-form" id="email-form">
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              required
+              placeholder="Enter your email for updates"
+            />
+          </div>
+
+          <button type="submit">
+            Notify me <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <!-- Success message -->
+        <div class="success-message hidden" id="success">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>You’ll be notified when it’s ready.</span>
         </div>
-
-        <span class="separator">:</span>
-
-        <div class="time-block">
-          <span class="time-value" id="hours">00</span>
-          <span class="time-label">Hours</span>
-        </div>
-        <span class="separator">:</span>
-
-        <div class="time-block">
-          <span class="time-value" id="minutes">00</span>
-          <span class="time-label">Minutes</span>
-        </div>
-        <span class="separator">:</span>
-
-        <div class="time-block">
-          <span class="time-value" id="seconds">00</span>
-          <span class="time-label">Seconds</span>
-        </div>
-      </section>
-
-      <!-- EMAIL FORM -->
-      <form class="email-form" id="email-form">
-        <div class="input-group">
-          <i class="fa-solid fa-envelope"></i>
-          <input type="email" required placeholder="Enter your email" />
-        </div>
-
-        <button type="submit">
-          Notify Me
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </form>
-
-      <!-- SUCCES MESSAGE -->
-      <div class="success-message hidden" id="success">
-        <i class="fa-solid fa-check-circle"></i>
-        <span>You're on the list! We'll notify you when we launch.</span>
-      </div>
-
-      <!-- SOCIAL LINKS -->
-      <div class="socials">
-        <a href="#">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        <a href="#">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="#">
-          <i class="fa-brands fa-discord"></i>
-        </a>
       </div>
     </main>
   </body>
