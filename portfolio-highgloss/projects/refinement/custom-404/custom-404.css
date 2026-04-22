@@ -1,116 +1,152 @@
-* {
-  margin: 0;
-  padding: 0;
+/* =========================
+   Custom 404 — Final, Portfolio-Aligned
+   ========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+:root {
+  --page-bg: #f6f7f9;
+  --text-main: #2e2e2e;
+  --text-muted: rgba(46, 46, 46, 0.72);
+
+  --demo-bg: #111111;
+  --demo-text: #ffffff;
+  --demo-muted: #9ca3af;
+
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.12);
+
+  --accent: #6eced1;
+  --accent-deep: #3fa6a3;
+
+  --radius-lg: 24px;
+}
+
+/* ---------- Portfolio frame ---------- */
+
 body {
-  background-color: #111;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+}
+
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.projectHeader {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.projectNav {
+  margin-bottom: 14px;
+}
+
+/* Shared back button */
+.btnNav {
+  display: inline-flex;
   align-items: center;
-  height: 100vh;
-  font-family: sans-serif;
-}
-
-img {
-  width: 100%;
-  max-width: 550px;
-  margin-bottom: 1.5rem;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1rem;
-  color: #aaa;
-  margin-bottom: 2rem;
-}
-
-a {
-  background-color: #3ecf8e;
-  color: #111;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.92rem;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-main);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
-a:hover {
-  background-color: #04fc8d;
+.btnNav:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+.display {
+  font-family: Fraunces, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin-bottom: 10px;
+}
+
+.lead {
+  max-width: 70ch;
+  color: var(--text-muted);
+}
+
+/* ---------- Demo ---------- */
+
+.demo-404 {
+  min-height: 100vh;
+  padding: 48px 20px;
+  display: grid;
+  place-items: center;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.demoCard {
+  max-width: 560px;
+  text-align: center;
+}
+
+.demoCard img {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+
+.demoCard h2 {
+  margin: 0 0 12px;
+  font-size: 1.75rem;
+}
+
+.demoCard p {
+  margin: 0 0 28px;
+  color: var(--demo-muted);
+  line-height: 1.6;
+}
+
+/* Primary recovery action */
+.primaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #0b0d10;
+  background: linear-gradient(135deg, var(--accent-deep), var(--accent));
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primaryAction:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Responsive */
 @media (max-width: 600px) {
-  img {
-    max-width: 400px;
-  }
-
-  h1 {
+  .demoCard h2 {
     font-size: 1.5rem;
   }
 
-  p {
-    font-size: 0.9rem;
+  .demoCard img {
+    max-width: 360px;
   }
-}
-/* =====================================
-   FINAL FIX — CUSTOM 404 PROJECT
-   ===================================== */
-
-/* 1️⃣ Neutral page — portfolio owns layout */
-body {
-  display: block;
-  background-color: #ffffff;
-  color: #2e2e2e;
-  font-family: sans-serif;
-  margin: 0;
-}
-
-/* 2️⃣ Protect the project header */
-.projectHeader {
-  text-align: left;
-  margin-bottom: 0;
-}
-
-.projectHeader .display {
-  color: #2e2e2e;
-  margin: 0 0 0.5rem;
-}
-
-.projectHeader .lead {
-  color: rgba(46, 46, 46, 0.72);
-  margin: 0;
-}
-
-/* 3️⃣ Demo owns full-screen layout inside wrapper */
-.demo-404 {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 40px 15px;
-  background-color: #111;
-  color: #fff;
-}
-
-/* 4️⃣ Demo-specific typography */
-.demo-404 h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.demo-404 p {
-  font-size: 1rem;
-  color: #aaa;
-  margin-bottom: 2rem;
-}
-
-.demo-404 img {
-  max-width: 550px;
-  width: 100%;
 }

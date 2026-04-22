@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Project Enquiry</title>
+    <title>Get in Touch</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,12 +26,14 @@
   <body>
     <header class="projectHeader">
       <div class="shell">
-        <a
-          class="btnNav"
-          href="../../../case-studies/service-based-business-website.html"
-        >
-          ← Back to Case Study
-        </a>
+        <div class="projectNav">
+          <a
+            class="btnNav"
+            href="../../../case-studies/service-based-business-website.html"
+          >
+            ← Back to Case Study
+          </a>
+        </div>
 
         <h1 class="display">Get in Touch</h1>
         <p class="lead">
@@ -42,8 +44,18 @@
     </header>
 
     <main class="demo">
-      <div class="form-container">
-        <form>
+      <section id="contact" class="form-container">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label> Don’t fill this out: <input name="bot-field" /> </label>
+          </p>
+
           <!-- Selected package -->
           <div class="input-field">
             <label for="package">Selected Pricing Option</label>
@@ -55,6 +67,9 @@
               aria-readonly="true"
               placeholder="Not selected yet"
             />
+            <p class="form-note clickable" onclick="clearPackage()">
+              Change selection
+            </p>
           </div>
 
           <!-- Contact info -->
@@ -62,33 +77,28 @@
             <div class="input-field">
               <i class="fas fa-user" aria-hidden="true"></i>
               <input
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Name"
                 required
-                aria-label="Name"
               />
             </div>
 
             <div class="input-field">
               <i class="fas fa-envelope" aria-hidden="true"></i>
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="Email"
                 required
-                aria-label="Email"
               />
             </div>
 
             <div class="input-field">
               <i class="fas fa-phone" aria-hidden="true"></i>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone (optional)"
-                aria-label="Phone"
-              />
+              <input type="tel" name="phone" placeholder="Phone (optional)" />
             </div>
 
             <div class="input-field">
@@ -98,7 +108,6 @@
                 name="subject"
                 placeholder="Project subject"
                 required
-                aria-label="Subject"
               />
             </div>
           </div>
@@ -112,41 +121,44 @@
               name="message"
               placeholder="Tell me about your goals, timeline, or questions"
               required
-              aria-label="Project details"
             ></textarea>
           </div>
 
           <button type="submit">
-            Send Message
-            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            Send Message <i class="fas fa-paper-plane" aria-hidden="true"></i>
           </button>
 
           <p class="form-note subtle">
             I usually respond within one business day.
           </p>
         </form>
-      </div>
+      </section>
     </main>
 
     <script>
       function selectPackage(button) {
-        const selectedPackage = button.getAttribute("data-package");
-
-        // Save for navigation or reloads
+        const selectedPackage = button.dataset.package;
         sessionStorage.setItem("selectedPackage", selectedPackage);
 
-        // ✅ Update the field immediately if it already exists
         const field = document.getElementById("package");
-        if (field) {
-          field.value = selectedPackage;
-        }
+        if (field) field.value = selectedPackage;
 
-        // Scroll to contact section if present
-        const contactSection = document.querySelector(".form-container");
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: "smooth" });
-        }
+        document
+          .getElementById("contact")
+          .scrollIntoView({ behavior: "smooth" });
       }
+
+      function clearPackage() {
+        sessionStorage.removeItem("selectedPackage");
+        const field = document.getElementById("package");
+        if (field) field.value = "";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const pkg = sessionStorage.getItem("selectedPackage");
+        const field = document.getElementById("package");
+        if (pkg && field) field.value = pkg;
+      });
     </script>
   </body>
 </html>

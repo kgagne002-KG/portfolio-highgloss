@@ -3,40 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom 404 Page</title>
+    <title>Custom 404 — Recovery UX & Guidance</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="custom-404.css" />
   </head>
+
   <body>
+    <!-- PROJECT HEADER -->
     <header class="projectHeader">
       <div class="shell">
         <div class="projectNav">
           <a
-            class="btn ghost"
             href="../../../case-studies/front-end-improvements-ui-refinement.html"
+            class="btnNav"
           >
             ← Back to Case Study
           </a>
         </div>
 
-        <h1 class="display">Custom 404 — Recovery UX &amp; Guidance</h1>
-
+        <h1 class="display">Custom 404</h1>
         <p class="lead">
-          An error state designed to guide users back to meaningful actions.
+          An error state designed to reduce friction and guide users back to
+          meaningful next steps.
         </p>
       </div>
     </header>
 
+    <!-- DEMO -->
     <main class="demo demo-404">
-      <div class="shell demoHeader">
-        <h2 class="demoTitle">Error State Demo</h2>
-        <p class="lead">A calm 404 layout with a clear recovery action.</p>
-      </div>
+      <div class="demoCard">
+        <img src="404.png" alt="Page not found illustration" />
 
-      <div class="shell">
-        <img src="404.png" alt="404 illustration" />
-        <h2>Oops! Page not found 👀</h2>
-        <p>Looks like you’re fishing in the wrong hole. Let’s head back!</p>
-        <a href="#" class="btn">Back to home</a>
+        <h2>Page not found</h2>
+        <p>
+          The page you’re looking for doesn’t exist or has been moved. Use the
+          action below to recover.
+        </p>
       </div>
     </main>
   </body>

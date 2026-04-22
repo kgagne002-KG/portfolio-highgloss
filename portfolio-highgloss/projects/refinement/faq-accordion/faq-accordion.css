@@ -1,35 +1,96 @@
-CSS :root {
-  --bg-primary: #0a0a0f;
-  --bg-card: #16161f;
-  --text-primary: #f0f0f5;
-  --text-secondary: #8888a0;
-  --accent: #6366f1;
-  --accent-light: #818cf8;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-accent: rgba(99, 102, 241, 0.3);
-}
+/* =========================
+   FAQ Accordion — Final, Portfolio‑Aligned
+   ========================= */
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+:root {
+  --page-bg: #f6f7f9;
+  --text-main: #2e2e2e;
+  --text-muted: rgba(46, 46, 46, 0.72);
+
+  --demo-bg: #0a0a0f;
+  --card-bg: #16161f;
+  --demo-text: #f0f0f5;
+  --demo-muted: #8888a0;
+
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(99, 102, 241, 0.3);
+}
+
+/* ---------- Portfolio frame ---------- */
+
 body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+}
+
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.projectHeader {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.projectNav {
+  margin-bottom: 14px;
+}
+
+/* Shared back button */
+.btnNav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-main);
+}
+
+.display {
+  font-family: Fraunces, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin-bottom: 10px;
+}
+
+.lead {
+  max-width: 70ch;
+  color: var(--text-muted);
+}
+
+/* ---------- Demo ---------- */
+
+.demo-faq {
+  background: var(--demo-bg);
+  color: var(--demo-text);
   min-height: 100vh;
 }
 
 .container {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 60px 20px 80px;
 }
 
-.header {
+.demoHeader {
   text-align: center;
   margin-bottom: 2.5rem;
 }
@@ -40,45 +101,32 @@ body {
   background: rgba(99, 102, 241, 0.15);
   border: 1px solid var(--border-accent);
   border-radius: 50px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 0.8rem;
   color: var(--accent-light);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-.header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: white;
+.demoTitle {
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
-.header p {
-  color: var(--text-secondary);
-  max-width: 450px;
-  margin: 0 auto;
+.demoIntro {
+  color: var(--demo-muted);
 }
 
+/* FAQ */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .faq-item {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-dark);
   border-radius: 12px;
   overflow: hidden;
-  transition: border-color 0.2s ease;
-}
-
-.faq-item:hover {
-  border-color: var(--border-accent);
-}
-
-.faq-item.active {
-  border-color: rgba(99, 102, 241, 0.4);
 }
 
 .faq-question {
@@ -86,23 +134,17 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 24px;
+  padding: 18px 22px;
   cursor: pointer;
-  font-size: 1rem;
   font-weight: 500;
-  color: var(--text-primary);
 }
 
 .icon {
   color: var(--accent-light);
-  font-size: 14px;
-  transition:
-    transform 0.2s ease,
-    color 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
 .faq-item.active .icon {
-  color: var(--accent);
   transform: rotate(45deg);
 }
 
@@ -121,134 +163,40 @@ body {
 }
 
 .faq-answer-content p {
-  padding: 0 24px 16px;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  padding: 0 22px 18px;
+  color: var(--demo-muted);
 }
 
-.faq-answer-content ul {
-  margin: 0 0 16px;
-  padding-left: 44px;
-  padding-right: 24px;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-
-.faq-answer-content li {
-  margin-bottom: 6px;
-}
-
+/* CTA */
 .contact-cta {
-  margin-top: 50px;
-  padding: 40px;
+  margin-top: 48px;
+  padding: 36px;
   background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 1rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 16px;
   text-align: center;
 }
 
 .cta-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
+  font-size: 2.25rem;
+  margin-bottom: 12px;
 }
 
 .contact-cta h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--text-primary);
+  margin-bottom: 8px;
 }
 
 .contact-cta p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 24px;
+  color: var(--demo-muted);
+  margin-bottom: 20px;
 }
 
 .cta-btn {
   display: inline-block;
   padding: 12px 28px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 0.95rem;
-  font-weight: 500;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 50px;
-  transition: background 0.2s ease;
-}
-
-.cta-btn:hover {
-  background: var(--accent-light);
-}
-
-@media (max-width: 640px) {
-  .container {
-    padding: 40px 16px 60px;
-  }
-
-  .header h1 {
-    font-size: 2rem;
-  }
-
-  .faq-question {
-    padding: 18px 20px;
-  }
-
-  .faq-answer-content p {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .faq-answer-content ul {
-    padding-left: 40px;
-    padding-right: 20px;
-  }
-
-  .contact-cta {
-    padding: 30px 20px;
-  }
-}
-/* ===============================
-   SCOPE FAQ DEMO
-   =============================== */
-
-body {
-  background: unset;
-  display: block;
-}
-
-.demo-faq {
-  min-height: 100vh;
-  background-color: var(--bg-primary);
-}
-
-/* Demo-only header styles */
-.demo-faq .demoHeader {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-/* =====================================
-   FINAL FIX — FAQ PROJECT (SCOPED)
-   ===================================== */
-
-/* 1) Neutral page — portfolio owns body */
-body {
-  background-color: #ffffff;
-  color: #2e2e2e;
-  min-height: auto;
-}
-
-/* 2) Demo owns dark theme INSIDE wrapper */
-.demo-faq {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-}
-
-/* 3) Ensure demo container spacing remains consistent */
-.demo-faq.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 60px 20px 80px;
+  border-radius: 999px;
+  font-weight: 600;
 }

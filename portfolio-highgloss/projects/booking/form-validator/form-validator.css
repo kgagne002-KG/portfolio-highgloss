@@ -1,141 +1,162 @@
-* {
-  margin: 0;
-  padding: 0;
+/* =========================
+   Form Validator — Portfolio-Aligned
+   ========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #0f1216;
+  --surface: #151a20;
+  --surface2: #1b222b;
+  --text: #f3f5f7;
+  --muted: rgba(243, 245, 247, 0.72);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #6eced1;
+  --accentDeep: #3fa6a3;
+  --error: #e5484d;
+  --success: #2ecc71;
+
+  --radius: 16px;
+  --radiusLg: 22px;
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Page */
 body {
-  background-color: #f9f9f9;
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background:
+    radial-gradient(
+      900px 520px at 18% 18%,
+      rgba(110, 206, 209, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 85% 22%,
+      rgba(63, 166, 163, 0.12),
+      transparent 62%
+    ),
+    linear-gradient(180deg, var(--bg), #0b0d10);
+  color: var(--text);
 }
 
-.container {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  padding: 30px;
-  overflow: hidden;
+/* Header */
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-h1 {
+.projectHeader {
+  padding: 56px 0 32px;
+}
+
+.btnNav {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+  margin-bottom: 14px;
+}
+
+/* Demo */
+.demo {
+  padding: 32px 0 80px;
+}
+
+.demoHeader {
   text-align: center;
-  color: #333;
-  margin-bottom: 1.2rem;
+  margin-bottom: 28px;
+}
+
+.demoTitle {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.demoSub {
+  color: var(--muted);
+}
+
+/* Form card */
+.formCard {
+  max-width: 420px;
+  margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 26, 32, 0.96),
+    rgba(27, 34, 43, 0.94)
+  );
+  border-radius: var(--radiusLg);
+  padding: 28px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   position: relative;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
-  color: #555;
-  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 input {
-  border: 2px solid #f0f0f0;
-  border-radius: 4px;
-  display: block;
   width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  transition: border-color 0.3s;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
 }
 
 input:focus {
   outline: none;
-  border-color: #3498db;
+  border-color: rgba(110, 206, 209, 0.45);
 }
 
 small {
-  visibility: hidden;
   position: absolute;
   bottom: -18px;
   left: 0;
-  font-size: 12px;
+  font-size: 0.75rem;
+  visibility: hidden;
 }
 
 button {
-  cursor: pointer;
-  background: #3498db;
-  border: none;
-  color: white;
-  display: block;
-  font-size: 1rem;
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 4px;
   width: 100%;
-  transition: background-color 0.3s;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: none;
+  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
+  color: #0b0d10;
+  font-weight: 800;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: #2980b9;
-}
-
+/* States */
 .form-group.error input {
-  border-color: #e74c3c;
-}
-
-.form-group.success input {
-  border-color: #2ecc71;
+  border-color: var(--error);
 }
 
 .form-group.error small {
   visibility: visible;
-  color: #e74c3c;
-}
-/* =====================================
-   FINAL FIX — FORM VALIDATOR PROJECT
-   ===================================== */
-
-/* 1️⃣ Stop demo layout from owning the page */
-body {
-  display: block;
-  justify-content: unset;
-  align-items: unset;
-  padding: 0;
-  background-color: #f9f9f9;
+  color: var(--error);
 }
 
-/* 2️⃣ Protect the portfolio project header */
-.projectHeader {
-  padding: 48px 0 32px;
-  text-align: left;
-}
-
-.projectHeader .display {
-  text-align: left;
-  color: inherit;
-  margin: 0 0 0.5rem;
-}
-
-.projectHeader .lead {
-  margin: 0;
-  color: inherit;
-}
-
-/* 3️⃣ Apply demo centering ONLY inside the demo */
-.demo-validator {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 15px;
-}
-
-/* 4️⃣ Demo-only heading styles */
-.demo-validator h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1.2rem;
+.form-group.success input {
+  border-color: var(--success);
 }
