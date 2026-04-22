@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Project Enquiry</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="contact-form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header class="projectHeader">
+      <div class="shell">
+        <a
+          class="btnNav"
+          href="../../../case-studies/service-based-business-website.html"
+        >
+          ← Back to Case Study
+        </a>
+
+        <h1 class="display">Get in Touch</h1>
+        <p class="lead">
+          Share a few details about your project. If you selected a pricing
+          option, it’s already noted below to keep things focused.
+        </p>
+      </div>
+    </header>
+
+    <main class="demo">
+      <div class="form-container">
+        <form>
+          <!-- Selected package -->
+          <div class="input-field">
+            <label for="package">Selected Pricing Option</label>
+            <input
+              type="text"
+              id="package"
+              name="package"
+              readonly
+              aria-readonly="true"
+              placeholder="Not selected yet"
+            />
+          </div>
+
+          <!-- Contact info -->
+          <div class="input-group">
+            <div class="input-field">
+              <i class="fas fa-user" aria-hidden="true"></i>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                aria-label="Name"
+              />
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                aria-label="Email"
+              />
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone (optional)"
+                aria-label="Phone"
+              />
+            </div>
+
+            <div class="input-field">
+              <i class="fas fa-tag" aria-hidden="true"></i>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Project subject"
+                required
+                aria-label="Subject"
+              />
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="message-field">
+            <p class="form-note">
+              A little context helps me provide an accurate quote and timeline.
+            </p>
+            <textarea
+              name="message"
+              placeholder="Tell me about your goals, timeline, or questions"
+              required
+              aria-label="Project details"
+            ></textarea>
+          </div>
+
+          <button type="submit">
+            Send Message
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </button>
+
+          <p class="form-note subtle">
+            I usually respond within one business day.
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      function selectPackage(button) {
+        const selectedPackage = button.getAttribute("data-package");
+
+        // Save for navigation or reloads
+        sessionStorage.setItem("selectedPackage", selectedPackage);
+
+        // ✅ Update the field immediately if it already exists
+        const field = document.getElementById("package");
+        if (field) {
+          field.value = selectedPackage;
+        }
+
+        // Scroll to contact section if present
+        const contactSection = document.querySelector(".form-container");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    </script>
+  </body>
+</html>

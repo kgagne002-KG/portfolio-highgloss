@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f7f4ef" />
+
+    <title>Kayla Gagne — Web Developer</title>
+    <meta
+      name="description"
+      content="Clean, modern websites and web applications — built with clarity, precision, and dependable results."
+    />
+
+    <!-- Fonts: editorial + clean -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- Cursor spotlight -->
+    <div class="spotlight" aria-hidden="true"></div>
+
+    <header class="header">
+      <nav class="nav shell">
+        <a class="brand" href="#top" aria-label="Back to top">
+          <span class="brandMark">KG</span>
+          <span class="brandText">Kayla Gagne</span>
+        </a>
+
+        <button class="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="links" data-links>
+          <a href="#showreel">Showreel</a>
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a class="cta" href="#contact">Let’s Talk</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="heroLights" aria-hidden="true">
+          <div class="orb orbA"></div>
+          <div class="orb orbB"></div>
+          <div class="orb orbC"></div>
+          <div class="scanline"></div>
+          <div class="grain"></div>
+        </div>
+
+        <div class="shell heroGrid">
+          <!-- LEFT: HERO COPY -->
+          <div class="heroCopy reveal">
+            <p class="kicker">Freelance Web Developer</p>
+
+            <h1 class="display">
+              Clean, modern websites and web applications —
+              <span class="accent">built with clarity</span> and
+              <span class="accent2">dependable results</span>.
+            </h1>
+
+            <p class="lead">
+              I design and build fast, reliable digital experiences—focused on
+              structure, usability, and performance.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn primary" href="#work">View Work</a>
+              <a class="btn ghost" href="#contact">Get in Touch</a>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="statTop">Focus</div>
+                <div class="statBottom">Clarity + usability</div>
+              </div>
+              <div class="stat">
+                <div class="statTop">Build</div>
+                <div class="statBottom">Performance‑minded</div>
+              </div>
+              <div class="stat">
+                <div class="statTop">Process</div>
+                <div class="statBottom">Calm, professional</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: SUPPORTING PANEL (RESTORED) -->
+          <div class="heroPanel reveal">
+            <div class="panelSheen" aria-hidden="true"></div>
+            <div class="panelInner">
+              <p class="panelKicker">Approach</p>
+              <h2 class="panelTitle">Studio‑grade delivery.</h2>
+              <p class="panelSub">
+                Clean structure. Thoughtful UI. Reliable execution.
+              </p>
+
+              <div class="chips">
+                <span class="chip">Websites</span>
+                <span class="chip aqua">Apps</span>
+                <span class="chip coral">UI</span>
+              </div>
+
+              <div class="miniGrid">
+                <div class="miniCard">
+                  <span class="miniIcon">⚡</span>
+                  <span class="miniText">Fast builds</span>
+                </div>
+                <div class="miniCard">
+                  <span class="miniIcon">✓</span>
+                  <span class="miniText">Accessible UI</span>
+                </div>
+                <div class="miniCard">
+                  <span class="miniIcon">✦</span>
+                  <span class="miniText">Premium polish</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="trustLine shell">
+          <p>
+            Clear communication. Realistic timelines. No unnecessary complexity.
+          </p>
+        </section>
+      </section>
+
+      <!-- SHOWREEL (FIXED + NO SCREENSHOTS) -->
+      <section
+        class="section showreel"
+        id="showreel"
+        aria-label="Showreel gallery"
+      >
+        <div class="shell">
+          <div class="sectionHead reveal">
+            <h2 class="h2">Showreel</h2>
+            <p class="subhead">Drag to browse. Snap + inertia + hover zoom.</p>
+          </div>
+
+          <div class="reelWrap reveal">
+            <button
+              class="reelBtn prev"
+              type="button"
+              aria-label="Scroll left"
+              data-reel-prev
+            >
+              ‹
+            </button>
+
+            <div
+              class="reel"
+              tabindex="0"
+              role="region"
+              aria-label="Horizontal project gallery"
+              data-reel
+            >
+              <a
+                class="reelItem"
+                href="case-studies/service-based-business-website.html"
+                data-reel-item
+                aria-label="Open: Service-Based Business Website"
+              >
+                <div class="reelMedia">
+                  <span class="reelTag">Website</span>
+                  <span class="reelTitle">Service‑Based Business Website</span>
+                  <span class="reelMeta"
+                    >Structured • Responsive • Performance‑focused</span
+                  >
+                </div>
+              </a>
+
+              <a
+                class="reelItem"
+                href="case-studies/custom-appointment-booking-system.html"
+                data-reel-item
+                aria-label="Open: Custom Appointment Booking System"
+              >
+                <div class="reelMedia">
+                  <span class="reelTag aqua">Web App</span>
+                  <span class="reelTitle"
+                    >Custom Appointment Booking System</span
+                  >
+                  <span class="reelMeta"
+                    >User flow • Validation • Practical UX</span
+                  >
+                </div>
+              </a>
+
+              <a
+                class="reelItem"
+                href="case-studies/front-end-improvements-ui-refinement.html"
+                data-reel-item
+                aria-label="Open: Front-End Improvements"
+              >
+                <div class="reelMedia">
+                  <span class="reelTag coral">UI</span>
+                  <span class="reelTitle">Front‑End Improvements</span>
+                  <span class="reelMeta"
+                    >Accessibility • Structure • Usability</span
+                  >
+                </div>
+              </a>
+
+              <a
+                class="reelItem"
+                href="#contact"
+                data-reel-item
+                aria-label="Open: Contact"
+              >
+                <div class="reelMedia">
+                  <span class="reelTag">Next</span>
+                  <span class="reelTitle">Let’s build something clean.</span>
+                  <span class="reelMeta">Start with a simple scope.</span>
+                </div>
+              </a>
+            </div>
+
+            <button
+              class="reelBtn next"
+              type="button"
+              aria-label="Scroll right"
+              data-reel-next
+            >
+              ›
+            </button>
+
+            <div class="reelHint" aria-hidden="true">
+              <span class="dot"></span><span class="dot"></span
+              ><span class="dot"></span>
+              <span class="hintText">Drag</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work">
+        <div class="shell">
+          <div class="sectionHead reveal">
+            <h2 class="h2">Selected Work</h2>
+            <p class="subhead">
+              Calm presentation. Clear outcomes. Explore the details.
+            </p>
+          </div>
+
+          <div class="grid workGrid">
+            <!-- Service Website -->
+            <article class="card reveal">
+              <div class="cardBody">
+                <h3>Service‑Based Business Website</h3>
+                <p>
+                  A service website designed to improve clarity, mobile
+                  usability, and conversion through structured layouts.
+                </p>
+                <a
+                  class="miniLink"
+                  href="case-studies/service-based-business-website.html"
+                >
+                  View case study →
+                </a>
+                <div class="meta">
+                  <span>Responsive</span><span>•</span> <span>Usability</span
+                  ><span>•</span>
+                  <span>Performance</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Booking System -->
+            <article class="card reveal">
+              <div class="cardBody">
+                <h3>Custom Appointment Booking System</h3>
+                <p>
+                  A booking workflow focused on reducing friction through
+                  validation, clear states, and predictable user flow.
+                </p>
+                <a
+                  class="miniLink"
+                  href="case-studies/custom-appointment-booking-system.html"
+                >
+                  View case study →
+                </a>
+                <div class="meta">
+                  <span>User Flow</span><span>•</span> <span>Validation</span
+                  ><span>•</span>
+                  <span>UX</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Refinement -->
+            <article class="card reveal">
+              <div class="cardBody">
+                <h3>Front‑End Improvements & UI Refinement</h3>
+                <p>
+                  Incremental front‑end improvements addressing accessibility,
+                  layout structure, and visual consistency without a full
+                  rebuild.
+                </p>
+                <a
+                  class="miniLink"
+                  href="case-studies/front-end-improvements-ui-refinement.html"
+                >
+                  View case study →
+                </a>
+                <div class="meta">
+                  <span>Accessibility</span><span>•</span>
+                  <span>Typography</span><span>•</span>
+                  <span>Consistency</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- SERVICES -->
+      <section class="section alt" id="services">
+        <div class="shell">
+          <div class="sectionHead reveal">
+            <h2 class="h2">Services</h2>
+            <p class="subhead">Focused offerings, premium execution.</p>
+          </div>
+
+          <div class="grid serviceGrid">
+            <div class="service reveal">
+              <h3>Custom Websites</h3>
+              <p>Clean, modern websites designed around your goals.</p>
+            </div>
+            <div class="service reveal">
+              <h3>Landing Pages</h3>
+              <p>Focused pages built for clarity, speed, and conversion.</p>
+            </div>
+            <div class="service reveal">
+              <h3>Web Applications &amp; Interactive Features</h3>
+              <p>Custom interfaces, booking systems, and interactive tools.</p>
+            </div>
+            <div class="service reveal">
+              <h3>Redesigns &amp; Improvements</h3>
+              <p>Targeted upgrades to structure, usability, and performance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="shell aboutGrid">
+          <div class="reveal">
+            <h2 class="h2">About</h2>
+            <p class="body">
+              I’m a freelance web developer who builds clean, practical websites
+              and web tools designed around real client needs. My work focuses
+              on creating fast, reliable, and easy‑to‑use digital experiences.
+            </p>
+            <p class="body">
+              I specialize in business websites, booking and scheduling systems,
+              and front‑end improvements that help organizations operate more
+              smoothly. Each project is approached with attention to detail,
+              clear communication, and a focus on well‑structured, maintainable
+              results.
+            </p>
+            <p class="body">
+              I continuously refine my development process and UI craft to
+              deliver consistent, high‑quality outcomes.
+            </p>
+
+            <div class="pillRow" aria-label="Core skills">
+              <span class="pill">HTML/CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">Responsive UI</span>
+              <span class="pill">Accessibility</span>
+              <span class="pill">Performance</span>
+            </div>
+          </div>
+
+          <div class="panel reveal tilt" data-tilt>
+            <div class="panelSheen" aria-hidden="true"></div>
+            <h3 class="h3">Working Style</h3>
+            <div class="twoCol">
+              <div>
+                <h4>Build</h4>
+                <ul>
+                  <li>Clean structure</li>
+                  <li>Maintainable components</li>
+                  <li>Fast, responsive layout</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Delivery</h4>
+                <ul>
+                  <li>Clear communication</li>
+                  <li>Realistic timelines</li>
+                  <li>Thoughtful execution</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sig">
+              <span class="line"></span><span class="name">— Kayla</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section alt" id="contact">
+        <div class="shell">
+          <div class="sectionHead reveal">
+            <h2 class="h2">Contact</h2>
+            <p class="subhead">
+              Share a short scope and timeline. I’ll reply with next steps.
+            </p>
+          </div>
+
+          <div class="grid contactGrid">
+            <form class="form reveal" id="contactForm">
+              <label>
+                <span>Name</span>
+                <input
+                  name="name"
+                  autocomplete="name"
+                  required
+                  placeholder="Your name"
+                />
+              </label>
+
+              <label>
+                <span>Email</span>
+                <input
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  placeholder="you@email.com"
+                />
+              </label>
+
+              <label>
+                <span>Message</span>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="What are you building? (pages, features, timeline)"
+                ></textarea>
+              </label>
+
+              <button class="btn primary magnetic" type="submit">
+                Send Message
+              </button>
+              <p
+                class="formNote"
+                id="formNote"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <aside class="sideCard reveal tilt" data-tilt>
+              <div class="sheen" aria-hidden="true"></div>
+              <h3 class="h3">Links</h3>
+              <p class="muted">Primary contact methods:</p>
+              <div class="linkList">
+                <a href="https://github.com/kgagne002-KG" rel="noreferrer"
+                  >GitHub</a
+                >
+                <a href="https://www.facebook.com/me/el" rel="noreferrer"
+                  >Facebook</a
+                >
+                <a href="mailto:kgagne002@gmail.com" rel="noreferrer"
+                  >kgagne002@gmail.com</a
+                >
+              </div>
+
+              <div class="mini">
+                <p class="caps">Availability</p>
+                <p class="muted">
+                  Open to freelance projects and collaborations.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="shell footRow">
+          <p>© <span id="year"></span> KG Glam Designs</p>
+          <a class="topLink" href="#top">Back to top ↑</a>
+        </div>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

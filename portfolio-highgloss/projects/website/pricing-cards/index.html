@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Cards — Hierarchy & Comparison</title>
+
+    <!-- Fonts (matches your portfolio tone) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Demo styles -->
+    <link rel="stylesheet" href="pricing-cards.css" />
+
+    <!-- Icons (optional, used for subtle plan icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header class="projectHeader">
+      <div class="shell">
+        <div class="projectNav">
+          <a
+            class="btnNav"
+            href="../../../case-studies/service-based-business-website.html"
+          >
+            ← Back to Case Study
+          </a>
+        </div>
+
+        <h1 class="display">
+          Pricing Cards
+          <span class="displaySub">Hierarchy &amp; Comparison</span>
+        </h1>
+
+        <p class="lead">
+          A pricing card layout designed for a freelance service website —
+          focused on clear hierarchy, scoped comparisons, and helping clients
+          self‑select before getting in touch.
+        </p>
+      </div>
+    </header>
+
+    <main class="demo">
+      <div class="container">
+        <div class="demoHeader">
+          <h2 class="demoTitle">Project Pricing</h2>
+          <p class="demoSub">
+            Project‑based pricing that keeps scope, expectations, and decisions
+            clear from the start.
+          </p>
+        </div>
+
+        <div class="pricing-cards" role="list">
+          <!-- Starter -->
+          <article
+            class="card"
+            role="listitem"
+            aria-label="Starter Website package"
+          >
+            <div class="card-header">
+              <div class="plan-icon" aria-hidden="true">
+                <i class="fas fa-rocket"></i>
+              </div>
+
+              <h3>Starter Website</h3>
+
+              <div class="priceRange">
+                <span class="currency">CAD</span>
+                <span class="amount">$900–$1,200</span>
+              </div>
+
+              <p class="description">
+                Clean, focused websites for small projects and individuals.
+              </p>
+            </div>
+
+            <div class="card-body">
+              <ul class="features">
+                <li><i class="fas fa-check"></i> 1–3 custom pages</li>
+                <li>
+                  <i class="fas fa-check"></i> Responsive, mobile‑first layout
+                </li>
+                <li><i class="fas fa-check"></i> Contact form</li>
+                <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                <li><i class="fas fa-check"></i> One revision round</li>
+              </ul>
+            </div>
+
+            <div class="card-footer">
+              <button
+                class="btn"
+                type="button"
+                data-package="Starter Website"
+                onclick="selectPackage(this)"
+              >
+                Start a Project
+              </button>
+            </div>
+          </article>
+
+          <!-- Small Business (Featured) -->
+          <article
+            class="card featured"
+            role="listitem"
+            aria-label="Small Business Website package"
+          >
+            <div class="featured-badge">Most Popular</div>
+
+            <div class="card-header">
+              <div class="plan-icon" aria-hidden="true">
+                <i class="fas fa-briefcase"></i>
+              </div>
+
+              <h3>Small Business Website</h3>
+
+              <div class="priceRange">
+                <span class="currency">CAD</span>
+                <span class="amount">$1,700–$2,500</span>
+              </div>
+
+              <p class="description">
+                A full website built to support services, credibility, and
+                growth.
+              </p>
+            </div>
+
+            <div class="card-body">
+              <ul class="features">
+                <li><i class="fas fa-check"></i> 5–7 custom pages</li>
+                <li><i class="fas fa-check"></i> Brand‑aligned design</li>
+                <li><i class="fas fa-check"></i> Conversion‑focused layout</li>
+                <li>
+                  <i class="fas fa-check"></i> Accessibility &amp; performance
+                  basics
+                </li>
+                <li><i class="fas fa-check"></i> Two revision rounds</li>
+                <li><i class="fas fa-check"></i> Launch support</li>
+              </ul>
+            </div>
+
+            <div class="card-footer">
+              <button
+                class="btn btn-accent"
+                type="button"
+                data-package="Small Business Website"
+                onclick="selectPackage(this)"
+              >
+                Let’s Talk
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <p class="pricingNote">
+          Final pricing depends on scope and project requirements. A detailed
+          quote is provided after a brief consultation.
+        </p>
+      </div>
+    </main>
+    <script>
+      function selectPackage(button) {
+        const selectedPackage = button.getAttribute("data-package");
+
+        // Store selection for contact form
+        sessionStorage.setItem("selectedPackage", selectedPackage);
+
+        // Navigate to contact section or page
+        window.location.href = "#contact";
+      }
+    </script>
+  </body>
+</html>

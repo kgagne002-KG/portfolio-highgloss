@@ -1,0 +1,192 @@
+/* =========================
+   Contact Form — Aligned to Pricing Cards
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f1216;
+  --surface: #151a20;
+  --surface2: #1b222b;
+  --text: #f3f5f7;
+  --muted: rgba(243, 245, 247, 0.72);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #6eced1;
+  --accentDeep: #3fa6a3;
+
+  --radius: 16px;
+  --radiusLg: 22px;
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background:
+    radial-gradient(
+      900px 520px at 18% 18%,
+      rgba(110, 206, 209, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 85% 22%,
+      rgba(63, 166, 163, 0.12),
+      transparent 62%
+    ),
+    linear-gradient(180deg, var(--bg), #0b0d10);
+  color: var(--text);
+}
+
+/* Header */
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.projectHeader {
+  padding: 56px 0 32px;
+}
+
+.btnNav {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.btnNav:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.display {
+  margin: 0 0 10px;
+  font-family: Fraunces, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.lead {
+  max-width: 70ch;
+  color: var(--muted);
+}
+
+/* Form container */
+.demo {
+  padding: 32px 20px 80px;
+}
+
+.form-container {
+  max-width: 760px;
+  margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 26, 32, 0.96),
+    rgba(27, 34, 43, 0.94)
+  );
+  border-radius: var(--radiusLg);
+  padding: 32px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Fields */
+form > * + * {
+  margin-top: 18px;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.input-field,
+.message-field {
+  position: relative;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px 14px 14px 40px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(110, 206, 209, 0.4);
+  box-shadow: 0 0 0 2px rgba(110, 206, 209, 0.2);
+}
+
+#package {
+  background: rgba(110, 206, 209, 0.08);
+  border-color: rgba(110, 206, 209, 0.26);
+  font-weight: 700;
+}
+
+.input-field i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(110, 206, 209, 0.6);
+}
+
+.message-field textarea {
+  padding-left: 14px;
+  height: 160px;
+}
+
+/* Notes */
+.form-note {
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.form-note.subtle {
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(110, 206, 209, 0.28);
+  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
+  color: #0b0d10;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: saturate(1.05);
+  transform: translateY(-1px);
+}

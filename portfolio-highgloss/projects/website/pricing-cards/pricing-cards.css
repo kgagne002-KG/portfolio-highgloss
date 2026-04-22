@@ -1,0 +1,378 @@
+/* =========================
+   Pricing Cards — Freelance (Project-Based)
+   Clean, calm, premium hierarchy
+   ========================= */
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Portfolio-friendly palette (calm neutrals + soft accent) */
+  --bg: #0f1216;
+  --surface: #151a20;
+  --surface2: #1b222b;
+  --text: #f3f5f7;
+  --muted: rgba(243, 245, 247, 0.72);
+  --border: rgba(255, 255, 255, 0.12);
+
+  /* Accent (subtle, not loud) */
+  --accent: #6eced1;
+  --accentDeep: #3fa6a3;
+
+  /* Radius + shadow */
+  --radius: 16px;
+  --radiusLg: 22px;
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
+  --shadowHi: 0 22px 70px rgba(0, 0, 0, 0.45);
+
+  /* Type */
+  --fontSans:
+    Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fontSerif: Fraunces, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fontSans);
+  color: var(--text);
+  background:
+    radial-gradient(
+      900px 520px at 18% 18%,
+      rgba(110, 206, 209, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 85% 22%,
+      rgba(63, 166, 163, 0.12),
+      transparent 62%
+    ),
+    linear-gradient(180deg, var(--bg), #0b0d10);
+  line-height: 1.6;
+}
+
+/* Header / shell (matches your project template structure) */
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.projectHeader {
+  padding: 54px 0 26px;
+}
+
+.projectNav {
+  margin-bottom: 14px;
+}
+
+.btnNav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.btnNav:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text);
+}
+
+.display {
+  margin: 0 0 10px;
+  font-family: var(--fontSerif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(2.05rem, 3.2vw, 2.7rem);
+}
+
+.displaySub {
+  display: block;
+  font-family: var(--fontSans);
+  font-weight: 700;
+  opacity: 0.62;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.lead {
+  margin: 0;
+  max-width: 70ch;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Demo wrapper */
+.demo {
+  padding: 34px 0 64px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.demoHeader {
+  text-align: center;
+  margin: 0 auto 26px;
+  max-width: 70ch;
+}
+
+.demoTitle {
+  margin: 0 0 8px;
+  font-family: var(--fontSerif);
+  font-weight: 400;
+  font-size: 1.65rem;
+}
+
+.demoSub {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Cards */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 26, 32, 0.95),
+    rgba(27, 34, 43, 0.92)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radiusLg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadowHi);
+  border-color: rgba(110, 206, 209, 0.22);
+}
+
+.card-header {
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.plan-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  background: rgba(110, 206, 209, 0.14);
+  border: 1px solid rgba(110, 206, 209, 0.2);
+}
+
+.plan-icon i {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+h3 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.priceRange {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.priceRange .currency {
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(110, 206, 209, 0.88);
+}
+
+.priceRange .amount {
+  font-weight: 900;
+  font-size: 1.65rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.description {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Body list */
+.card-body {
+  padding: 18px 22px 8px;
+}
+
+.features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  color: rgba(243, 245, 247, 0.9);
+  font-weight: 600;
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.features i.fa-check {
+  margin-top: 3px;
+  color: rgba(110, 206, 209, 0.95);
+}
+
+/* Footer / buttons */
+.card-footer {
+  padding: 14px 22px 22px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(110, 206, 209, 0.22);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
+  border-color: rgba(110, 206, 209, 0.26);
+}
+
+.btn-accent:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accentDeep),
+    rgba(110, 206, 209, 0.92)
+  );
+}
+
+/* Featured (premium, not aggressive) */
+.featured {
+  transform: translateY(-6px);
+  border-color: rgba(110, 206, 209, 0.28);
+}
+
+.featured:hover {
+  transform: translateY(-8px);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(243, 245, 247, 0.92);
+  background: rgba(110, 206, 209, 0.14);
+  border: 1px solid rgba(110, 206, 209, 0.22);
+}
+
+/* Note under cards */
+.pricingNote {
+  margin: 18px auto 0;
+  max-width: 80ch;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .pricing-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .featured {
+    transform: none; /* avoids “jumping” on stacked layout */
+  }
+
+  .featured:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 520px) {
+  .projectHeader {
+    padding-top: 44px;
+  }
+
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .priceRange .amount {
+    font-size: 1.5rem;
+  }
+}
