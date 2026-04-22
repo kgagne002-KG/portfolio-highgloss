@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pricing Cards — Hierarchy & Comparison</title>
+    <title>Pricing Cards — Hierarchy &amp; Comparison</title>
 
-    <!-- Fonts (matches your portfolio tone) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,10 +13,10 @@
       rel="stylesheet"
     />
 
-    <!-- Demo styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="pricing-cards.css" />
 
-    <!-- Icons (optional, used for subtle plan icons) -->
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -71,7 +71,6 @@
               <div class="plan-icon" aria-hidden="true">
                 <i class="fas fa-rocket"></i>
               </div>
-
               <h3>Starter Website</h3>
 
               <div class="priceRange">
@@ -97,14 +96,14 @@
             </div>
 
             <div class="card-footer">
-              <button
-                class="btn"
-                type="button"
+              <a
+                href="../../../index.html#contact"
+                class="pricing-btn"
                 data-package="Starter Website"
-                onclick="selectPackage(this)"
+                onclick="return handlePricingClick(event, this);"
               >
                 Start a Project
-              </button>
+              </a>
             </div>
           </article>
 
@@ -120,7 +119,6 @@
               <div class="plan-icon" aria-hidden="true">
                 <i class="fas fa-briefcase"></i>
               </div>
-
               <h3>Small Business Website</h3>
 
               <div class="priceRange">
@@ -148,15 +146,16 @@
               </ul>
             </div>
 
+            <!-- ✅ IDENTICAL HTML: same class as Starter -->
             <div class="card-footer">
-              <button
-                class="btn btn-accent"
-                type="button"
+              <a
+                href="../../../index.html#contact"
+                class="pricing-btn"
                 data-package="Small Business Website"
-                onclick="selectPackage(this)"
+                onclick="return handlePricingClick(event, this);"
               >
                 Let’s Talk
-              </button>
+              </a>
             </div>
           </article>
         </div>
@@ -167,15 +166,22 @@
         </p>
       </div>
     </main>
+
     <script>
-      function selectPackage(button) {
-        const selectedPackage = button.getAttribute("data-package");
+      function handlePricingClick(event, el) {
+        const pkg = el.dataset.package;
+        if (pkg) sessionStorage.setItem("selectedPackage", pkg);
 
-        // Store selection for contact form
-        sessionStorage.setItem("selectedPackage", selectedPackage);
+        // If a contact section exists on the same page, scroll instead of navigating.
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          event.preventDefault();
+          contactSection.scrollIntoView({ behavior: "smooth" });
+          return false;
+        }
 
-        // Navigate to contact section or page
-        window.location.href = "#contact";
+        // Otherwise, allow navigation to ../../../index.html#contact
+        return true;
       }
     </script>
   </body>

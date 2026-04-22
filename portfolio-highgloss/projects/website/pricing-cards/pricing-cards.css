@@ -1,9 +1,7 @@
 /* =========================
-   Pricing Cards — Freelance (Project-Based)
-   Clean, calm, premium hierarchy
+   Pricing Cards — Clean + Unified
    ========================= */
 
-/* Reset */
 *,
 *::before,
 *::after {
@@ -11,7 +9,6 @@
 }
 
 :root {
-  /* Portfolio-friendly palette (calm neutrals + soft accent) */
   --bg: #0f1216;
   --surface: #151a20;
   --surface2: #1b222b;
@@ -19,17 +16,14 @@
   --muted: rgba(243, 245, 247, 0.72);
   --border: rgba(255, 255, 255, 0.12);
 
-  /* Accent (subtle, not loud) */
   --accent: #6eced1;
   --accentDeep: #3fa6a3;
 
-  /* Radius + shadow */
   --radius: 16px;
   --radiusLg: 22px;
   --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
   --shadowHi: 0 22px 70px rgba(0, 0, 0, 0.45);
 
-  /* Type */
   --fontSans:
     Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --fontSerif: Fraunces, serif;
@@ -58,7 +52,7 @@ body {
   line-height: 1.6;
 }
 
-/* Header / shell (matches your project template structure) */
+/* Header / shell */
 .shell {
   max-width: 1120px;
   margin: 0 auto;
@@ -88,13 +82,15 @@ body {
   transition:
     transform 0.15s ease,
     background 0.15s ease,
-    color 0.15s ease;
+    color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .btnNav:hover {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.09);
   color: var(--text);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .display {
@@ -123,7 +119,7 @@ body {
   font-weight: 600;
 }
 
-/* Demo wrapper */
+/* Demo */
 .demo {
   padding: 34px 0 64px;
 }
@@ -242,7 +238,6 @@ h3 {
   font-size: 0.95rem;
 }
 
-/* Body list */
 .card-body {
   padding: 18px 22px 8px;
 }
@@ -272,47 +267,7 @@ h3 {
   color: rgba(110, 206, 209, 0.95);
 }
 
-/* Footer / buttons */
-.card-footer {
-  padding: 14px 22px 22px;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  padding: 14px 14px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--text);
-  font-weight: 900;
-  cursor: pointer;
-  transition:
-    transform 0.16s ease,
-    background 0.16s ease,
-    border-color 0.16s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(110, 206, 209, 0.22);
-}
-
-.btn-accent {
-  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
-  border-color: rgba(110, 206, 209, 0.26);
-}
-
-.btn-accent:hover {
-  background: linear-gradient(
-    135deg,
-    var(--accentDeep),
-    rgba(110, 206, 209, 0.92)
-  );
-}
-
-/* Featured (premium, not aggressive) */
+/* Featured */
 .featured {
   transform: translateY(-6px);
   border-color: rgba(110, 206, 209, 0.28);
@@ -336,13 +291,80 @@ h3 {
   border: 1px solid rgba(110, 206, 209, 0.22);
 }
 
-/* Note under cards */
+/* Note */
 .pricingNote {
   margin: 18px auto 0;
   max-width: 80ch;
   text-align: center;
   color: var(--muted);
   font-weight: 600;
+}
+
+/* Footer */
+.card-footer {
+  padding: 14px 22px 22px;
+}
+
+/* =========================================================
+   FINAL PRICING CTA BUTTONS (ONE SOURCE OF TRUTH)
+   Light‑blue gradient for BOTH buttons
+   ========================================================= */
+
+.pricing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  padding: 14px 16px;
+
+  font-family: var(--fontSans);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+
+  border-radius: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+
+  background: linear-gradient(135deg, var(--accentDeep), var(--accent));
+  color: #0b0d10;
+
+  border: 1px solid rgba(110, 206, 209, 0.28);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+}
+
+.pricing-btn:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
+}
+
+.pricing-btn:active {
+  transform: translateY(0px);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32);
+}
+
+.pricing-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 18px 52px rgba(0, 0, 0, 0.42),
+    0 0 0 3px rgba(110, 206, 209, 0.38);
+}
+
+.pricing-btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: none;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Mobile */
@@ -352,7 +374,7 @@ h3 {
   }
 
   .featured {
-    transform: none; /* avoids “jumping” on stacked layout */
+    transform: none;
   }
 
   .featured:hover {

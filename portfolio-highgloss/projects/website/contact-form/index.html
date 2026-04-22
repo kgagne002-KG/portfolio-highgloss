@@ -136,29 +136,15 @@
     </main>
 
     <script>
-      function selectPackage(button) {
-        const selectedPackage = button.dataset.package;
-        sessionStorage.setItem("selectedPackage", selectedPackage);
-
+      (function () {
         const field = document.getElementById("package");
-        if (field) field.value = selectedPackage;
+        if (!field) return;
 
-        document
-          .getElementById("contact")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-
-      function clearPackage() {
-        sessionStorage.removeItem("selectedPackage");
-        const field = document.getElementById("package");
-        if (field) field.value = "";
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
         const pkg = sessionStorage.getItem("selectedPackage");
-        const field = document.getElementById("package");
-        if (pkg && field) field.value = pkg;
-      });
+        if (pkg) {
+          field.value = pkg;
+        }
+      })();
     </script>
   </body>
 </html>
