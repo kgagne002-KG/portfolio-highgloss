@@ -1,0 +1,693 @@
+/* =========================
+   DESIGN TOKENS
+========================= */
+:root {
+  --sand-100: #f7f4ef;
+  --sand-200: #efe9e1;
+  --white: #ffffff;
+
+  --text-primary: #2e2e2e;
+  --text-secondary: #6b6b6b;
+
+  --aqua: #6eced1;
+  --aqua-deep: #3fa6a3;
+  --coral: #f28c85;
+
+  --border-soft: rgba(0, 0, 0, 0.12);
+
+  --border: var(--border-soft);
+  --card: var(--white);
+  --soft: var(--sand-200);
+  --brand: var(--aqua-deep);
+  --danger: var(--coral);
+
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial;
+}
+
+/* =========================
+   BASE
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(var(--sand-100), #fff);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   HEADER (IMPORTANT FIX)
+========================= */
+
+/* Header stays in normal flow */
+.site-header {
+  position: relative;
+  z-index: 10;
+}
+
+/* Brand banner scrolls normally */
+.brand-banner {
+  background: linear-gradient(
+    135deg,
+    var(--aqua-deep) 0%,
+    var(--aqua) 45%,
+    var(--sand-100) 100%
+  );
+
+  padding: 28px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.brand-banner__image {
+  max-height: 140px;
+  width: auto;
+  border-radius: 14px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* ONLY the controls bar is sticky */
+.site-header__inner {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: linear-gradient(#fff, #fdfdfd);
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input,
+select,
+button,
+textarea {
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+button {
+  background: var(--brand);
+  color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: var(--soft);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+button.danger {
+  background: var(--danger);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* File label button */
+.file {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.file input {
+  display: none;
+}
+
+/* =========================
+   LAYOUT HELPERS
+========================= */
+.card {
+  max-width: 1100px;
+  margin: 16px auto 0;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.grid {
+  max-width: 1100px;
+  margin: 16px auto 0;
+  padding: 0 16px;
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1.35fr 0.9fr;
+  }
+}
+
+/* =========================
+   BANNER & PROGRESS
+========================= */
+.banner {
+  max-width: 1100px;
+  margin: 16px auto 0;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+}
+
+.pill.brand {
+  background: var(--brand);
+  color: #fff;
+  border-color: transparent;
+}
+
+.progressWrap {
+  margin-top: 12px;
+  height: 10px;
+  background: var(--soft);
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 0%;
+  background: var(--brand);
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 600px) {
+  .brand-banner {
+    padding: 20px 12px;
+  }
+
+  .brand-banner__image {
+    max-height: 110px;
+  }
+
+  .controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .controls input,
+  .controls button,
+  .controls .file {
+    width: 100%;
+  }
+
+  .banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--soft);
+  padding: 6px;
+  border-radius: 16px;
+  margin-top: 12px;
+}
+.tab {
+  background: transparent;
+  border: 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.tab.active {
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.composer {
+  margin-top: 12px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 12px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background: #fff;
+}
+.item .title {
+  font-weight: 650;
+}
+.empty {
+  text-align: center;
+  padding: 14px;
+  color: var(--text-secondary);
+}
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 18px 16px;
+  color: var(--text-secondary);
+}
+.brand-signature {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+/* =========================
+   TABS – VISIBILITY & UX FIX
+========================= */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 6px;
+  background: var(--sand-200);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+/* Base tab appearance */
+.tab {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--soft);
+  color: var(--text-secondary);
+
+  padding: 10px 16px;
+  border-radius: 14px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+/* Hover / focus */
+.tab:hover {
+  background: var(--white);
+  color: var(--text-primary);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Active (selected) tab */
+.tab.active {
+  background: var(--white);
+  color: var(--brand);
+  border-color: var(--brand);
+
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.12),
+    0 0 0 2px rgba(63, 166, 163, 0.15);
+
+  transform: translateY(-1px);
+}
+
+/* Pressed */
+.tab:active {
+  transform: translateY(0);
+}
+
+/* Mobile spacing */
+@media (max-width: 600px) {
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+}
+/* =========================
+   NEW: MATRIX + ANALYTICS + DONE TAB STYLES
+   (Paste at the very bottom of styles.css)
+========================= */
+
+/* Small status pill used inside task rows (app.js adds .pill.mini) */
+.pill.mini {
+  padding: 2px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  border-radius: 999px;
+  background: var(--sand-200);
+  border: 1px solid var(--border);
+}
+
+/* Make sure pills in task meta don’t wrap awkwardly */
+.item .muted.small .pill.mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Eisenhower / Prioritization Matrix layout */
+.matrix {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.matrix > div {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.matrix h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+/* Make the matrix 3 columns on wide screens */
+@media (min-width: 960px) {
+  .matrix {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
+
+/* Ensure matrix lists look consistent */
+#matrixNow .item,
+#matrixSchedule .item,
+#matrixDelete .item {
+  background: #fff;
+}
+
+/* Analytics textarea styling */
+#standupSummary {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  margin-top: 10px;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  background: #fff;
+}
+
+/* Copy button spacing on analytics */
+#copyStandupBtn {
+  margin-top: 10px;
+}
+
+/* Done tab list spacing (matches your existing .list/.item) */
+#doneList .item .title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Optional: make completed rows feel subtly different */
+#doneList .item {
+  background: linear-gradient(#fff, #fcfcfc);
+}
+
+/* Make the analytics pills wrap nicely */
+#tab-analytics .row.wrap .pill {
+  margin-top: 6px;
+}
+.pill.mini {
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.matrix {
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 960px) {
+  .matrix {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+#standupSummary {
+  width: 100%;
+  min-height: 180px;
+  font-family: ui-monospace, monospace;
+}
+.brand-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+}
+
+.brand-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--brand, #3fa6a3);
+  user-select: none;
+}
+/* =========================
+   Task List Visual Upgrade
+========================= */
+
+#taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Task card */
+#taskList .item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+/* Left content */
+#taskList .item > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Task title */
+#taskList .item .title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Completed task */
+#taskList .item .title.muted {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Metadata line */
+#taskList .item .muted.small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 0.75rem;
+}
+
+/* Pills / chips */
+#taskList .pill.mini {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f1f4f6;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Right-side actions */
+#taskList .row.end {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Buttons smaller + consistent */
+#taskList button {
+  font-size: 0.7rem;
+  padding: 6px 10px;
+}
+
+/* Active task highlight */
+#taskList .item[data-active="true"] {
+  border-left: 4px solid var(--brand, #3fa6a3);
+}
+
+/* Priority accents */
+#taskList .item[data-priority="3"] {
+  background: linear-gradient(to right, #fff, #fff6eb);
+}
+
+#taskList .item[data-priority="1"] {
+  opacity: 0.85;
+}
+/* Energy dots */
+.energy-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.energy-low {
+  background: #6c757d;
+}
+.energy-medium {
+  background: #f0ad4e;
+}
+.energy-high {
+  background: #d9534f;
+}
+/* =========================
+   First‑Run Modal
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-card {
+  position: relative;
+  max-width: 420px;
+  margin: 10vh auto;
+  background: #ffffff;
+  padding: 20px 22px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-card h2 {
+  margin-top: 0;
+}
+
+.modal-card ul {
+  padding-left: 18px;
+}
+
+.modal-card li {
+  margin-bottom: 6px;
+}

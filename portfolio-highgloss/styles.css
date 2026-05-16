@@ -1534,3 +1534,1104 @@ textarea:focus {
     padding: 18px 20px;
   }
 }
+/* ===============================
+   Contact Form — Final Netlify Styles
+   =============================== */
+
+/* Hide honeypot + utility hidden class */
+.hidden {
+  display: none !important;
+}
+
+/* Form wrapper safety */
+form[name="contact"] {
+  width: 100%;
+}
+
+/* Input groups */
+.input-field,
+.message-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Labels */
+form label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Inputs + textarea */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+
+  color: #f3f5f7;
+  background: rgba(255, 255, 255, 0.06);
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+/* Focus state */
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: rgba(110, 206, 209, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(110, 206, 209, 0.25);
+}
+
+/* Read‑only field (Selected Pricing Option) */
+form input[readonly] {
+  opacity: 0.9;
+  cursor: default;
+}
+
+/* ===============================
+   Submit button (matches pricing buttons)
+   =============================== */
+
+form button[type="submit"],
+form .pricing-btn {
+  margin-top: 6px;
+
+  width: 100%;
+  padding: 14px 16px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+
+  border-radius: 16px;
+  border: 1px solid rgba(110, 206, 209, 0.28);
+
+  background: linear-gradient(135deg, #3fa6a3, #6eced1);
+  color: #0b0d10;
+
+  cursor: pointer;
+  text-align: center;
+
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+}
+
+form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.42);
+}
+
+form button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32);
+}
+
+/* Keyboard accessibility */
+form button[type="submit"]:focus-visible {
+  outline: none;
+  box-shadow:
+    0 18px 52px rgba(0, 0, 0, 0.42),
+    0 0 0 3px rgba(110, 206, 209, 0.38);
+}
+
+/* ===============================
+   Success message
+   =============================== */
+
+.form-success {
+  margin-top: 16px;
+  padding: 14px 18px;
+
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+
+  color: #0b0d10;
+  background: linear-gradient(
+    135deg,
+    rgba(110, 206, 209, 0.9),
+    rgba(63, 166, 163, 0.9)
+  );
+
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+/* ===============================
+   FIX: Remove blur from contact form
+   =============================== */
+
+/* Target the contact section safely */
+#contact,
+#contact * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure form fields are fully opaque */
+#contact input,
+#contact textarea {
+  background: rgba(21, 26, 32, 0.96);
+}
+/* ===============================
+   FIX: Contact form clarity
+   =============================== */
+
+/* Lift contact section above spotlight */
+#contact,
+#contact * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make form container fully solid */
+#contact .form {
+  background: #ffffff;
+}
+
+/* Make inputs fully opaque (no glass) */
+#contact input,
+#contact textarea {
+  background: #ffffff;
+  color: var(--text-primary);
+}
+
+/* Optional: slightly soften borders now that blur is gone */
+#contact input,
+#contact textarea {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+/* ===============================
+   FIX: Contact form label visibility
+   =============================== */
+
+/* Main page contact form labels */
+#contact label,
+#contact label span {
+  color: var(--text-primary);
+}
+
+/* Optional: slightly mute sub‑labels if you want hierarchy */
+#contact label {
+  opacity: 0.95;
+}
+/* ===============================
+   Netlify fallback success page
+   =============================== */
+
+body.netlify {
+  background: linear-gradient(135deg, #f7f4ef, #ffffff);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body.netlify h1 {
+  font-family: Fraunces, serif;
+  color: #2e2e2e;
+}
+
+body.netlify p {
+  color: #6b6b6b;
+  font-weight: 700;
+}
+/* ===============================
+   Select (dropdown) styling
+   =============================== */
+
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #666 50%),
+    linear-gradient(135deg, #666 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+select:focus {
+  outline: none;
+  border-color: rgba(63, 166, 163, 0.35);
+  box-shadow: var(--ring);
+}
+/* ===============================
+   Select dropdown icon animation
+   =============================== */
+
+/* Position context */
+.input-field {
+  position: relative;
+}
+
+/* Remove native arrow (we replace it) */
+.input-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 44px; /* space for icon */
+}
+
+/* Custom arrow */
+.input-field::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+
+  transform: translateY(-55%) rotate(45deg);
+  transform-origin: center;
+
+  opacity: 0.65;
+  pointer-events: none;
+
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+/* Animate on focus / open */
+.input-field:focus-within::after {
+  transform: translateY(-35%) rotate(-135deg);
+  opacity: 1;
+}
+/* =================================================
+   Select option highlight — Brand Aqua (Unified)
+   Works for main contact + contact form demo
+   ================================================= */
+
+/* Selected / highlighted option */
+select option:checked {
+  background-color: rgba(110, 206, 209, 0.25); /* brand aqua */
+  color: #0b0d10;
+}
+
+/* Hover (where supported) */
+select option:hover {
+  background-color: rgba(110, 206, 209, 0.35);
+  color: #0b0d10;
+}
+
+/* -------------------------------------------------
+   Demo (dark UI) fallback safety
+   Ensures options remain readable in all browsers
+   ------------------------------------------------- */
+
+.demo select option,
+.form-container select option {
+  background: #ffffff;
+  color: var(--text-primary);
+}
+.pricing .pricingGrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+
+  /* Automatically fits 2 or 3 nicely */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.pricingCard .cardBody {
+  display: grid;
+  gap: 14px;
+}
+
+.pricingTop {
+  display: grid;
+  gap: 8px;
+}
+
+.pricingTag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pricingTitle {
+  margin: 0;
+}
+
+.pricingDesc {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.pricingPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.priceFrom {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.priceValue {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.pricingList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.pricingActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.pricingNote {
+  margin: 0;
+}
+
+.pricingFoot {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+/* Featured package: subtle premium emphasis */
+.pricingCard.featured {
+  position: relative;
+  overflow: hidden;
+}
+
+.pricingCard.featured::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: radial-gradient(
+    600px 200px at 20% 0%,
+    rgba(120, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.02) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+.pricingCard.featured {
+  transform: scale(1.02);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+.pricingCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pricingCard.premium {
+  border: 1px solid rgba(63, 166, 163, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+.pricingActions {
+  margin-top: auto;
+}
+.pricingCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glowAqua);
+}
+.cardBody {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.pricingPrice {
+  margin: 10px 0;
+}
+/* Responsive */
+@media (max-width: 860px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   PRICING — CONTRAST FIX
+   ========================= */
+
+.pricing,
+.pricing .pricingTitle,
+.pricing .pricingDesc,
+.pricing .pricingList,
+.pricing .pricingList li,
+.pricing .pricingNote,
+.pricing .priceFrom {
+  color: var(--text, #1b1b1b);
+}
+
+/* Price should stand out */
+.pricing .priceValue {
+  color: var(--heading, #111);
+}
+
+/* Muted helper text */
+.pricing .muted,
+.pricing .pricingDesc,
+.pricing .pricingNote {
+  opacity: 0.85;
+}
+
+/* Pills / tags */
+.pricing .pricingTag {
+  color: var(--text, #1b1b1b);
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Featured card stays premium, readable */
+.pricing .featured {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+/* Ensure cards always inherit readable color */
+.pricing .cardBody {
+  color: inherit;
+}
+.pricingCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricingCard .cardBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricingActions {
+  margin-top: auto;
+}
+.pricingPrice {
+  margin: 10px 0;
+}
+/* =========================
+   MOBILE RESPONSIVE BASE
+   ========================= */
+@media (max-width: 880px) {
+  /* Shell padding */
+  .shell {
+    padding-inline: 16px;
+  }
+
+  /* Stack all grids naturally */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Headings scale down */
+  .display {
+    font-size: clamp(32px, 7vw, 40px);
+    line-height: 1.15;
+  }
+
+  .h2 {
+    font-size: 26px;
+  }
+
+  .h3 {
+    font-size: 20px;
+  }
+
+  /* Body text comfort */
+  .lead,
+  .body,
+  p {
+    font-size: 16px;
+  }
+
+  /* Buttons: easier taps */
+  .btn {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 880px) {
+  .heroGrid {
+    display: grid;
+    gap: 28px;
+  }
+
+  .heroPanel {
+    order: -1; /* panel appears first */
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 880px) {
+  .reelWrap {
+    padding-bottom: 12px;
+  }
+
+  .reelBtn {
+    display: none; /* drag-only on mobile */
+  }
+
+  .reelItem {
+    min-width: 80vw;
+  }
+}
+/* FAQ Card Accordion */
+
+.faq-card {
+  cursor: pointer;
+}
+
+.faq-toggle {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.faq-question {
+  margin: 0;
+}
+
+.faq-icon {
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: transform 0.25s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease;
+  opacity: 0;
+}
+
+.faq-card[data-open] .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 0.75rem;
+}
+
+.faq-card[data-open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Question */
+.faq-item summary {
+  font-weight: 600;
+  list-style: none;
+  position: relative;
+}
+
+/* Remove arrow */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom + symbol */
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  font-size: 1.4rem;
+  color: #ff4da6;
+}
+
+/* Open state */
+.faq-item[open] summary::after {
+  content: "–";
+}
+
+/* Answer text */
+.faq-item p {
+  margin-top: 0.5rem;
+  color: #555;
+}
+
+/* Rating container */
+.rating {
+  display: inline-flex;
+  flex-direction: row-reverse; /* THIS makes it work properly */
+  gap: 0.25rem;
+}
+
+/* Hide radio inputs */
+.rating__input {
+  display: none;
+}
+
+/* Crown icons */
+.rating__svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #f2c4d8; /* soft pink = "empty" state */
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    fill 0.15s ease;
+}
+
+/* Hover effect */
+.rating__star:hover .rating__svg,
+.rating__star:hover ~ .rating__star .rating__svg {
+  fill: #ff4da6; /* bright pink */
+  transform: translateY(-2px);
+}
+
+/* Selected state */
+.rating__input:checked ~ .rating__star .rating__svg {
+  fill: #ff4da6;
+}
+.rating__svg:hover {
+  filter: drop-shadow(0 0 6px rgba(255, 77, 166, 0.4));
+}
+/* Testimonials container */
+.testimonials-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  padding: 20px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+
+  transition: all 0.25s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Pink crowns */
+.crown {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: #ff4da6;
+  opacity: 0.85;
+}
+
+/* Rating row */
+.testimonial-rating {
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 10px;
+}
+
+.testimonial-text::before {
+  content: "“";
+  position: absolute;
+  left: -6px;
+  top: -10px;
+  font-size: 2.4rem;
+  color: rgba(0, 0, 0, 0.08);
+}
+
+/* Name */
+.testimonial-name {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+/* Selected state (this was missing properly) */
+.rating__input:checked ~ .rating__star .rating__svg {
+  fill: #ff4da6;
+}
+
+/* Hover glow */
+.rating__svg:hover {
+  filter: drop-shadow(0 0 6px rgba(255, 77, 166, 0.4));
+}
+.rating-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1.5rem 0;
+  font-weight: 900;
+}
+
+.rating-summary p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+/* Form layout wrapper */
+.review-form {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 600px;
+}
+
+/* Each row clean alignment */
+.review-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Inputs + textarea match your system */
+.review-form__input,
+.review-form__textarea {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  font-family: inherit;
+}
+
+/* Label styling */
+.review-form__label {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+/* Submit button */
+.review-form__submit {
+  background: var(--color-pink);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.review-form__submit:hover {
+  background: #ff4da6;
+  box-shadow: 0 8px 20px rgba(255, 77, 166, 0.3);
+}
+.review-form__submit:active {
+  background: #e0438c;
+  box-shadow: 0 4px 12px rgba(255, 77, 166, 0.2);
+}
+.review-form__submit:focus-visible {
+  outline: none;
+  box-shadow:
+    0 8px 20px rgba(255, 77, 166, 0.3),
+    0 0 0 3px rgba(255, 77, 166, 0.4);
+}
+.section .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+/* ✅ FIX: Review form text visibility */
+.review-form__input,
+.review-form__textarea {
+  background: #ffffff;
+  color: var(--text-primary); /* dark readable text */
+}
+
+/* Fix placeholder text too */
+.review-form__input::placeholder,
+.review-form__textarea::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* Fix focus state */
+.review-form__input:focus,
+.review-form__textarea:focus {
+  background: #ffffff;
+  color: var(--text-primary);
+}
+.review-form__input:focus::placeholder,
+.review-form__textarea:focus::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+/* Layout container */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left side (form) */
+.review-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Right side (reviews) */
+.reviews-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Layout container */
+.review-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left side (form) */
+.review-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Right side (testimonials) */
+.review-right {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Make responsive for mobile */
+@media (max-width: 900px) {
+  .review-layout {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+@media (max-width: 900px) {
+  .review-right {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ✅ Fix typing visibility */
+.review-form__input,
+.review-form__textarea {
+  background: #ffffff !important;
+  color: #2e2e2e !important;
+}
+
+.review-form__input::placeholder,
+.review-form__textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.review-form__input:focus,
+.review-form__textarea:focus {
+  background: #ffffff !important;
+  color: #2e2e2e !important;
+}
+.review-form__input:focus::placeholder,
+.review-form__textarea:focus::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+}
+
+.rating__input {
+  display: none;
+}
+
+.rating__svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #f2c4d8;
+  transition: 0.2s ease;
+}
+
+/* Hover */
+.rating__star:hover .rating__svg,
+.rating__star:hover ~ .rating__star .rating__svg {
+  fill: #ff4da6;
+}
+
+/* Selected */
+.rating__input:checked ~ .rating__star .rating__svg {
+  fill: #ff4da6;
+}
+.rating__svg:hover {
+  filter: drop-shadow(0 0 6px rgba(255, 77, 166, 0.4));
+}
+.testimonial-card {
+  color: var(--text-primary); /* ensures all text inside is readable */
+}
+
+.testimonial-text {
+  color: var(--text-primary);
+}
+
+.testimonial-name {
+  color: var(--text-secondary);
+}
+input,
+textarea {
+  color: var(--text-primary);
+  background: #ffffff;
+}
+.testimonials input,
+.testimonials textarea,
+.testimonials label {
+  color: var(--text-primary);
+}
+
+.testimonials ::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.testimonials input:focus,
+.testimonials textarea:focus {
+  color: var(--text-primary);
+  background: #ffffff;
+}
+.testimonials input:focus::placeholder,
+.testimonials textarea:focus::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+/* ===============================
+TESTIMONIAL FORM — FIX COLORS
+=============================== */
+
+/* Labels */
+.testimonials label,
+.review-form__label {
+  color: var(--text-primary) !important;
+  opacity: 1;
+}
+
+/* Inputs + textarea */
+.testimonials input,
+.testimonials textarea,
+.review-form__input,
+.review-form__textarea {
+  background: #ffffff !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Placeholder text */
+.testimonials ::placeholder,
+.review-form__input::placeholder,
+.review-form__textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Focus state (keeps it readable when typing) */
+.testimonials input:focus,
+.testimonials textarea:focus,
+.review-form__input:focus,
+.review-form__textarea:focus {
+  background: #ffffff !important;
+  color: var(--text-primary) !important;
+}
+.testimonials input:focus::placeholder,
+.testimonials textarea:focus::placeholder,
+.review-form__input:focus::placeholder,
+.review-form__textarea:focus::placeholder {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+/* ===============================
+TESTIMONIAL FORM — COLOR FIX
+=============================== */
+
+/* ✅ Labels */
+.review-form__label {
+  color: var(--text-primary); /* dark readable */
+  font-weight: 800;
+  opacity: 1;
+}
+
+/* ✅ Inputs + textarea */
+.review-form__input,
+.review-form__textarea {
+  background: #ffffff;
+  color: var(--text-primary); /* dark text */
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ Placeholder text (this was the missing piece) */
+.review-form__input::placeholder,
+.review-form__textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ✅ Keep text readable on focus */
+.review-form__input:focus,
+.review-form__textarea:focus {
+  background: #ffffff;
+  color: var(--text-primary);
+  border-color: rgba(63, 166, 163, 0.35);
+  box-shadow: var(--ring);
+}
+
+/* ✅ Optional: smoother placeholder on focus */
+.review-form__input:focus::placeholder,
+.review-form__textarea:focus::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}

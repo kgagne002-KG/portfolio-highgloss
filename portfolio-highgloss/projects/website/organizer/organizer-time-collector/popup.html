@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Organizer Collector</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <h1>Organizer Collector</h1>
+
+      <div class="card">
+        <div class="row">
+          <span class="label">Tracking:</span>
+          <span id="trackingState" class="pill">OFF</span>
+        </div>
+
+        <div class="row">
+          <span class="label">Queue:</span>
+          <span id="queueState" class="pill">0</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="small muted">Latest segment</div>
+        <div id="latest" class="latest">—</div>
+      </div>
+
+      <div class="row buttons">
+        <button id="flushBtn">Flush</button>
+        <button id="stopBtn" class="secondary">Stop</button>
+      </div>
+
+      <div class="small muted tip">
+        Keep Organizer open for live delivery. Enable “Allow access to file
+        URLs” if using file://
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

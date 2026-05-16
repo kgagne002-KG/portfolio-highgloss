@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Organizer Time Collector",
+  "version": "1.0.0",
+  "description": "Tracks active domains/titles and sends time blocks into Auto‑Tracking Organizer. Badge shows due today / timer state.",
+  "permissions": ["tabs", "storage", "alarms", "idle", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Organizer Time Collector",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}

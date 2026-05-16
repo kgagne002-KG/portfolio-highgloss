@@ -58,18 +58,14 @@
 
           <!-- Selected package -->
           <div class="input-field">
-            <label for="package">Selected Pricing Option</label>
-            <input
-              type="text"
-              id="package"
-              name="package"
-              readonly
-              aria-readonly="true"
-              placeholder="Not selected yet"
-            />
-            <p class="form-note clickable" onclick="clearPackage()">
-              Change selection
-            </p>
+            <label for="package">Project type</label>
+            <select id="package" name="package" required>
+              <option value="" disabled selected>Select a project type</option>
+              <option value="Starter Website">Starter Website</option>
+              <option value="Small Business Website">
+                Small Business Website
+              </option>
+            </select>
           </div>
 
           <!-- Contact info -->

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auto‑Tracking Organizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="brand-banner">
+  <h1 class="brand-title">Auto‑Tracking Organizer</h1>
+</div>
+
+      <div class="site-header__inner">
+        <div class="controls">
+          <label for="search" class="visually-hidden">Search tasks</label>
+          <input id="search" type="search" placeholder="Search tasks…" />
+          <button id="exportBtn" class="secondary">Export</button>
+          <label class="file">
+            Import
+            <input id="importFile" type="file" accept="application/json" />
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- ACTIVE TIMER -->
+    <section id="activeTimerBanner" class="banner hidden">
+      <div>
+        <div><b>Tracking:</b> <span id="activeTimerTitle"></span></div>
+        <div class="muted small">
+          Started <span id="activeTimerStart"></span>
+        </div>
+      </div>
+      <div class="row">
+        <span id="activeTimerElapsed" class="pill mono">00:00:00</span>
+        <button id="stopTimerBtn" class="secondary">Stop & Log</button>
+      </div>
+    </section>
+
+    <!-- SUMMARY + TABS -->
+    <section class="card">
+      <div class="row wrap between">
+        <div class="row wrap">
+          <input id="date" type="date" />
+          <span id="dateLabel" class="muted"></span>
+          <span class="pill"
+            >Workday <span id="workdayLabel" class="mono"></span
+          ></span>
+        </div>
+
+        <div class="row wrap">
+          <span class="pill"
+            >Logged <b id="loggedToday" class="mono">00:00</b></span
+          >
+          <span class="pill"
+            >Task time <b id="taskTimeToday" class="mono">00:00</b></span
+          >
+          <span class="pill brand"
+            >Progress <span id="dayProgressPct">0%</span></span
+          >
+        </div>
+      </div>
+
+      <div class="progressWrap">
+        <div id="dayProgressBar" class="progressBar"></div>
+      </div>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="today">Today</button>
+        <button class="tab" data-tab="logs">Time Logs</button>
+        <button class="tab" data-tab="done">Done</button>
+        <button class="tab" data-tab="matrix">Priorities</button>
+        <button class="tab" data-tab="analytics">Analytics</button>
+        <button class="tab" data-tab="recurring">Recurring</button>
+        <button class="tab" data-tab="settings">Settings</button>
+      </nav>
+    </section>
+
+    <!-- TODAY -->
+    <main id="tab-today" class="grid">
+      <section class="card">
+        <div class="row wrap between">
+          <div>
+            <h2>Tasks</h2>
+            <p class="muted small">Start/Stop tasks to auto‑track time.</p>
+          </div>
+          <select id="categoryFilter"></select>
+        </div>
+
+        <div class="composer">
+          <div class="row wrap">
+            <input id="taskTitle" placeholder="Task title…" />
+            <select id="taskCategory"></select>
+
+            <select id="taskPriority">
+              <option value="1">Low</option>
+              <option value="2" selected>Medium</option>
+              <option value="3">High</option>
+            </select>
+
+            <select id="taskUrgency">
+              <option value="1">Not urgent</option>
+              <option value="2">Soon</option>
+              <option value="3">Urgent</option>
+            </select>
+
+            <select id="taskEnergy">
+              <option value="low">Low energy</option>
+              <option value="medium" selected>Medium energy</option>
+              <option value="high">High energy</option>
+            </select>
+
+            <input id="taskDue" type="date" />
+          </div>
+
+          <textarea id="taskNotes" placeholder="Notes (optional)…"></textarea>
+         
+
+          <div class="row wrap between">
+            <label class="row small muted">
+              <input id="taskForDate" type="checkbox" checked />
+              Schedule for selected date
+            </label>
+            <button id="addTaskBtn">Add Task</button>
+          </div>
+        </div>
+
+        <div id="taskList" class="list"></div>
+        <div id="noTasks" class="empty hidden">No tasks for this date.</div>
+      </section>
+
+      <section class="card">
+        <h2>Today’s Logs</h2>
+        <div id="logListMini" class="list"></div>
+        <div id="noLogsMini" class="empty hidden">No logs yet.</div>
+      </section>
+    </main>
+
+    <!-- LOGS -->
+    <main id="tab-logs" class="grid hidden">
+      <section class="card">
+        <h2>Quick Log</h2>
+
+        <div class="row wrap">
+          <input id="logTitle" placeholder="Entry title…" />
+          <select id="logType">
+            <option value="task" selected>Task</option>
+            <option value="meeting">Meeting</option>
+            <option value="admin">Admin</option>
+            <option value="other">Other</option>
+          </select>
+          <input id="logMinutes" type="number" min="1" max="600" value="25" />
+          <select id="logCategory"></select>
+        </div>
+
+        <input id="logNote" placeholder="Note (optional)…" />
+        <div class="row wrap end">
+          <button id="addLogBtn">Add Log</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Time Logs</h2>
+        <span class="pill">Total <b id="logsTotal" class="mono">00:00</b></span>
+        <div id="logList" class="list"></div>
+        <div id="noLogs" class="empty hidden">No logs for this date.</div>
+      </section>
+    </main>
+
+    <!-- DONE -->
+    <main id="tab-done" class="grid hidden">
+      <section class="card">
+        <h2>Completed Tasks</h2>
+        <span class="pill"><span id="doneCount">0</span> tasks</span>
+        <div id="doneList" class="list"></div>
+        <div id="noDone" class="empty hidden">No completed tasks yet.</div>
+      </section>
+    </main>
+
+    <!-- MATRIX -->
+    <main id="tab-matrix" class="hidden">
+      <section class="card">
+        <h2>Prioritization Matrix</h2>
+        <div class="matrix">
+          <div>
+            <h3>Do Now</h3>
+            <div id="matrixNow" class="list"></div>
+          </div>
+          <div>
+            <h3>Schedule</h3>
+            <div id="matrixSchedule" class="list"></div>
+          </div>
+          <div>
+            <h3>Delete / Delegate</h3>
+            <div id="matrixDelete" class="list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ANALYTICS -->
+    <main id="tab-analytics" class="hidden">
+      <section class="card">
+        <h2>Productivity Analytics</h2>
+
+        <div class="row wrap">
+          <span class="pill">Focused <b id="focusTime">00:00</b></span>
+          <span class="pill">Breaks <b id="breakTime">00:00</b></span>
+          <span class="pill">Active days <b id="activeDays">0</b></span>
+          <span class="pill">Overtime <b id="overtime">00:00</b></span>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>Daily Stand‑up Summary</h3>
+        <textarea id="standupSummary" readonly></textarea>
+        <button id="copyStandupBtn" class="secondary">Copy Summary</button>
+      </section>
+    </main>
+<!-- RECURRING -->
+<main id="tab-recurring" class="grid hidden">
+  <section class="card">
+    <div class="row wrap between">
+      <div>
+        <h2>Recurring Templates</h2>
+        <p class="muted small">
+          Templates generate tasks automatically on matching dates.
+        </p>
+      </div>
+      <span class="pill">
+        <span id="tplCount">0</span> templates
+      </span>
+    </div>
+
+    <div id="tplList" class="list"></div>
+    <div id="noTpl" class="empty hidden">No templates yet.</div>
+
+    <div class="divider"></div>
+
+    <!-- ADD TEMPLATE -->
+    <div class="composer">
+      <div class="row wrap">
+        <input id="tplTitle" placeholder="Template title…" />
+
+        <select id="tplCategory"></select>
+
+        <select id="tplPriority">
+          <option value="1">Low</option>
+          <option value="2" selected>Medium</option>
+          <option value="3">High</option>
+        </select>
+
+        <select id="tplFreq">
+          <option value="daily">Daily</option>
+          <option value="weekly" selected>Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+
+      <!-- Weekly picker -->
+      <div id="tplWeekly" class="row wrap"></div>
+
+      <!-- Monthly picker -->
+      <div id="tplMonthly" class="row wrap hidden">
+        <span class="muted small">Day of month</span>
+        <input id="tplMonthday" type="number" min="1" max="31" />
+      </div>
+
+      <input id="tplNotes" placeholder="Notes (optional)…" />
+
+      <div class="row wrap between">
+        <label class="row small muted">
+          <input id="tplActive" type="checkbox" checked />
+          Active
+        </label>
+        <button id="addTplBtn">Add Template</button>
+      </div>
+    </div>
+  </section>
+</main>
+    <!-- SETTINGS -->
+    <main id="tab-settings" class="grid hidden">
+      <section class="card">
+        <h2>Preferences</h2>
+
+        <input id="wdStart" type="number" min="0" max="1439" />
+        <input id="wdEnd" type="number" min="0" max="1439" />
+
+        <label class="row wrap between">
+          <span><b>Auto‑log task timers</b></span>
+          <input id="autoLogTask" type="checkbox" />
+        </label>
+
+        <input id="minTaskMinutes" type="number" min="1" max="60" />
+        <button id="resetBtn" class="danger">Reset local data</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        © <span id="year"> 2026 </span> Kayla Gagne<br />
+        <span class="brand-signature">KG Glam Designs</span>
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+    <!-- First‑run welcome modal -->
+<div id="firstRunModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-card">
+    <h2>Welcome 👋</h2>
+
+    <p>
+      This organizer runs entirely in your browser.
+      Your tasks and time logs are saved locally on this device only.
+    </p>
+
+    <p class="muted small">
+      No accounts. No cloud sync. No tracking.
+    </p>
+
+    <ul class="small">
+      <li>Add tasks and start timers to log time</li>
+      <li>Use Recurring templates for routine work</li>
+      <li>Optional browser extension can capture time automatically</li>
+    </ul>
+
+    <div class="row end">
+      <button id="dismissFirstRun" class="primary">Got it</button>
+    </div>
+  </div>
+</div>
+  </body>
+</html>

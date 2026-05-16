@@ -169,3 +169,68 @@ textarea:focus {
   color: var(--muted);
   margin-top: 6px;
 }
+/* ===============================
+   Select — Contact Form Demo (Dark)
+   =============================== */
+
+.demo select,
+.form-container select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: #f3f5f7;
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #bbb 50%),
+    linear-gradient(135deg, #bbb 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.demo select:focus,
+.form-container select:focus {
+  outline: none;
+  border-color: rgba(110, 206, 209, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(110, 206, 209, 0.25);
+}
+
+/* Disabled placeholder option */
+.demo select option[disabled] {
+  color: rgba(255, 255, 255, 0.45);
+}
+/* ===============================
+   FIX: Dark demo select options
+   =============================== */
+
+/* Force readable option list */
+.demo select option,
+.form-container select option {
+  color: #111; /* readable text */
+  background: #ffffff; /* default dropdown background */
+}
+
+/* Optional: hover/highlight state */
+.demo select option:checked,
+.form-container select option:checked {
+  background: #e9f6f6;
+  color: #0b0d10;
+}
