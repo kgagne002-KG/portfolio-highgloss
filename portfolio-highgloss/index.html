@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#f7f4ef" />
 
-    <title>Kayla Gagne — Web Developer</title>
+    <title>Web Developer in St. Thomas Ontario | KG Glam Designs</title>
     <meta
       name="description"
-      content="Clean, modern websites and web applications — built with clarity, precision, and dependable results."
+      content="Freelance web developer in St. Thomas, Ontario offering custom website design, ecommerce development, and SEO-optimized websites for small businesses."
     />
+
+    <!-- Social sharing (optional but recommended) -->
+    <meta property="og:title" content="KG Glam Designs" />
+    <meta
+      property="og:description"
+      content="Modern, responsive websites built to elevate your brand."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/preview.jpg" />
 
     <link rel="stylesheet" href="styles.css?v=2" />
   </head>
@@ -56,7 +65,9 @@
         <div class="shell heroGrid">
           <!-- LEFT: HERO COPY -->
           <div class="heroCopy reveal">
-            <p class="kicker">Freelance Web Developer</p>
+            <p class="kicker seoKicker">
+              Freelance Web Developer in St. Thomas Ontario
+            </p>
 
             <h1 class="display">
               Websites that turn visitors into real clients —
@@ -64,10 +75,11 @@
               <span class="accent2">purpose</span>.
             </h1>
 
+            <p class="lead"></p>
             <p class="lead">
-              I design and build fast, high-quality websites that help
-              businesses look professional, build trust, and convert more
-              visitors into customers.
+              I design and build fast, high-quality websites for small
+              businesses in St. Thomas, Ontario and beyond — helping brands look
+              professional, build trust, and convert more
             </p>
 
             <div class="heroActions">
@@ -578,10 +590,13 @@
       <section class="section" id="about">
         <div class="shell aboutGrid">
           <div class="reveal">
-            <h2 class="h2">About</h2>
+            <h2 class="h2">About KG Glam Designs</h2>
             <p class="body">
-              I’m a freelance web developer focused on building clean, effective
-              websites that help businesses grow and operate more efficiently.
+              KG Glam Designs is a freelance web developer based in St. Thomas,
+              Ontario, specializing in modern, responsive website design for
+              small businesses and brands. We create custom, SEO-optimized
+              websites that help businesses stand out online, attract more
+              customers, and grow their digital presence.
             </p>
             <p class="body">
               I specialize in business websites, booking and scheduling systems,
@@ -669,7 +684,72 @@
           </div>
         </div>
       </section>
+      <section class="section" id="faq">
+        <div class="shell">
+          <div class="sectionHead">
+            <h2 class="h2">Frequently Asked Questions</h2>
+            <p class="subhead">
+              Answers about working with a freelance web developer in Ontario.
+            </p>
+          </div>
 
+          <!-- FAQ items (SEO optimized) -->
+
+          <details class="faq-item">
+            <summary>
+              How much does a website cost for a small business in Ontario?
+            </summary>
+            <p>
+              Website pricing depends on features, pages, and functionality.
+              Small business websites in Ontario typically range from basic
+              one-page sites to fully custom multi-page builds designed for
+              growth.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Do I need a custom website or can I use a template?
+            </summary>
+            <p>
+              A custom website offers better performance, SEO, and flexibility
+              compared to templates. It allows your business to stand out and
+              scale over time.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              What is included in SEO-optimized website design services?
+            </summary>
+            <p>
+              SEO-optimized websites include proper page structure, fast load
+              speeds, mobile responsiveness, and content built around relevant
+              search keywords.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How long does it take to build a custom website?</summary>
+            <p>
+              Timelines vary depending on project scope. A simple site may take
+              a few weeks, while larger business websites can take longer due to
+              design, revisions, and content.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Do you offer web design services near St. Thomas Ontario?
+            </summary>
+            <p>
+              Yes. KG Glam Designs provides web design services for businesses
+              in St. Thomas, Ontario and surrounding areas, as well as remote
+              clients.
+            </p>
+          </details>
+        </div>
+      </section>
       <!-- CONTACT -->
       <section class="section alt" id="contact">
         <div class="shell">
@@ -780,6 +860,7 @@
       <footer class="footer">
         <div class="shell footRow">
           <p>© <span id="year"></span> KG Glam Designs</p>
+
           <a class="topLink" href="#top">Back to top ↑</a>
         </div>
       </footer>
@@ -817,6 +898,16 @@
           sessionStorage.removeItem("selectedPackage");
         }, 500);
       });
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "KG Glam Designs",
+        "areaServed": "Ontario",
+        "serviceType": "Web Development",
+        "description": "Custom website design and development services."
+      }
     </script>
   </body>
 </html>

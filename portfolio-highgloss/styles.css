@@ -186,11 +186,13 @@ a {
   position: relative;
   padding: 86px 0 18px;
 }
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 26px;
-  align-items: center;
+@media (max-width: 880px) {
+  .heroGrid {
+    display: grid;
+    grid-template-columns: 1.1fr;
+    gap: 26px;
+    align-items: start;
+  }
 }
 
 .heroLights {
@@ -201,7 +203,7 @@ a {
 }
 .orb {
   position: absolute;
-  width: 560px;
+  max-width: 120vw;
   height: 560px;
   border-radius: 50%;
   filter: blur(26px);
@@ -1015,7 +1017,7 @@ textarea:focus {
 .reelItem {
   scroll-snap-align: start;
   flex: 0 0 auto;
-  width: 380px;
+  width: min(380px, 85vw);
   text-decoration: none;
   transform-style: preserve-3d;
 }
@@ -2634,4 +2636,134 @@ TESTIMONIAL FORM — COLOR FIX
 .review-form__input:focus::placeholder,
 .review-form__textarea:focus::placeholder {
   color: rgba(0, 0, 0, 0.4);
+}
+/* 1) Mobile-first baseline */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  line-height: 1.5;
+}
+
+/* 2) Make media responsive */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 3) Container that never breaks mobile */
+.container {
+  width: min(1100px, 100%);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* 4) Tap-friendly buttons/links */
+button,
+.btn,
+a.btn {
+  min-height: 48px;
+  padding: 12px 16px;
+}
+
+/* 5) Responsive type + hero spacing */
+h1 {
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+h2 {
+  font-size: clamp(20px, 3.8vw, 32px);
+  margin: 0 0 10px;
+}
+.section {
+  padding: clamp(24px, 5vw, 72px) 0;
+}
+@media (max-width: 880px) {
+  .workGrid,
+  .serviceGrid,
+  .aboutGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ✅ MOBILE FIX PATCH */
+
+@media (max-width: 880px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reelItem {
+    width: min(380px, 85vw);
+  }
+
+  .orb {
+    display: none;
+  }
+
+  .workGrid,
+  .serviceGrid,
+  .aboutGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fix broken pseudo elements */
+.reelWrap::before,
+.reelWrap::after {
+  content: "";
+}
+
+/* Fix section padding bug */
+.section {
+  padding: clamp(24px, 5vw, 72px) 0;
+}
+/* SEO-friendly kicker (keeps design intact) */
+.seoKicker {
+  max-width: 60ch;
+}
+/* Fix broken clamp */
+.section {
+  padding: clamp(24px, 5vw, 72px) 0;
+}
+
+/* Keep SEO phrase tidy */
+.seoKicker {
+  max-width: 60ch;
+}
+
+/* Mobile: force hero to single column */
+@media (max-width: 880px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 26px;
+  align-items: start; /* ✅ THIS FIXES YOUR ISSUE */
+}
+
+.heroPanel {
+  transform: translateY(10px); /* optional polish */
 }
