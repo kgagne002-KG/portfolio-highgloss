@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QKQZM2SN0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0QKQZM2SN0');
+</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#f7f4ef" />
@@ -10,6 +19,7 @@
       name="description"
       content="Freelance web developer in St. Thomas, Ontario offering custom website design, ecommerce development, and SEO-optimized websites for small businesses."
     />
+
 
     <!-- Social sharing (optional but recommended) -->
     <meta property="og:title" content="KG Glam Designs" />
@@ -750,91 +760,91 @@
           </details>
         </div>
       </section>
-      <!-- CONTACT -->
-      <section class="section alt" id="contact">
-        <div class="shell">
-          <div class="sectionHead reveal">
-            <h2 class="h2">Contact</h2>
-            <p class="subhead">
-              Share a quick overview of your project. I’ll review it and guide
-              you through the best next steps.
-              <span class="muted"
-                >Most projects receive a response within 24–48 hours.</span
-              >
-            </p>
-          </div>
+     <!-- CONTACT -->
+<section class="section alt" id="contact">
+  <div class="shell">
+    <div class="sectionHead reveal">
+      <h2 class="h2">Contact</h2>
+      <p class="subhead">
+        Share a quick overview of your project. I’ll review it and guide
+        you through the best next steps.
+        <span class="muted">
+          Most projects receive a response within 24–48 hours.
+        </span>
+      </p>
+    </div>
 
-          <div class="grid contactGrid">
-            <form
-              name="contact"
-              method="POST"
-              action="/thank-you.html"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-            >
-              <!-- REQUIRED hidden form name -->
-              <input type="hidden" name="form-name" value="contact" />
+    <div class="grid contactGrid">
+      <!-- ✅ UPDATED FORM -->
+      <form
+        method="POST"
+        action="https://formspree.io/f/mjgzbejz"
+        onsubmit="gtag('event', 'form_submit', { 'event_category': 'contact', 'event_label': 'contact_form' });"
+      >
 
-              <!-- Optional spam honeypot (Netlify recommended) -->
-              <p class="hidden">
-                <label>
-                  Don’t fill this out:
-                  <input name="bot-field" />
-                </label>
-              </p>
+        <!-- ✅ Honeypot spam protection (still useful) -->
+        <input type="text" name="_gotcha" style="display:none">
 
-              <!-- Name -->
-              <div class="input-field">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
+        <!-- ✅ Redirect after submit -->
+        <input type="hidden" name="_redirect" value="/thank-you.html">
 
-              <!-- Email -->
-              <div class="input-field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required />
-              </div>
+        <!-- Name -->
+        <div class="input-field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
 
-              <div class="input-field">
-                <label for="package">Project type</label>
-                <select id="package" name="package" required>
-                  <option value="" disabled selected>
-                    Select a project type
-                  </option>
-                  <option value="Starter Website">Starter Website</option>
-                  <option value="Small Business Website">
-                    Small Business Website
-                  </option>
-                </select>
-              </div>
-              <div class="input-field">
-                <label for="timeline">Timeline</label>
-                <select id="timeline" name="timeline">
-                  <option value="" disabled selected>Select timeline</option>
-                  <option>ASAP</option>
-                  <option>Within 2–4 weeks</option>
-                  <option>1–2 months</option>
-                  <option>Just exploring</option>
-                </select>
-              </div>
-              <!-- Message -->
-              <div class="message-field">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  placeholder="Briefly describe your project, goals, and any specific features you need..."
-                  required
-                ></textarea>
-              </div>
+        <!-- Email -->
+        <div class="input-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
 
-              <!-- Submit -->
-              <button type="submit" class="pricing-btn">Send Message</button>
-              <p class="form-success hidden">
-                ✅ Thanks! Your message has been sent.
-              </p>
-            </form>
+        <!-- Project type -->
+        <div class="input-field">
+          <label for="package">Project type</label>
+          <select id="package" name="package" required>
+            <option value="" disabled selected>
+              Select a project type
+            </option>
+            <option value="Starter Website">Starter Website</option>
+            <option value="Small Business Website">
+              Small Business Website
+            </option>
+          </select>
+        </div>
+
+        <!-- Timeline -->
+        <div class="input-field">
+          <label for="timeline">Timeline</label>
+          <select id="timeline" name="timeline">
+            <option value="" disabled selected>Select timeline</option>
+            <option>ASAP</option>
+            <option>Within 2–4 weeks</option>
+            <option>1–2 months</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="message-field">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Briefly describe your project, goals, and any specific features you need..."
+            required
+          ></textarea>
+        </div>
+<div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
+        <!-- Submit -->
+        <button type="submit" class="pricing-btn">Send Message</button>
+
+      </form>
+    </div>
+  </div>
+</section>
 
             <aside class="sideCard reveal tilt" data-tilt>
               <div class="sheen" aria-hidden="true"></div>
@@ -909,5 +919,12 @@
         "description": "Custom website design and development services."
       }
     </script>
+    <script>
+document.querySelector("form").addEventListener("submit", function() {
+  const button = this.querySelector("button");
+  button.disabled = true;
+  button.innerText = "Sending...";
+});
+</script>
   </body>
 </html>
